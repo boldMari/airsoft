@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
 import Rules from "../components/Rules";
+import Address from "../components/Address";
 
 const Home = () => {
 	return (
@@ -26,6 +27,11 @@ const Home = () => {
 			<Row>
 				<Col>
 					<Rules></Rules>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Address/>
 				</Col>
 			</Row>
 		</Container>
