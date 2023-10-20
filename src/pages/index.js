@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
+import Rules from "../components/Rules";
 
 const Home = () => {
 	return (
@@ -20,6 +21,11 @@ const Home = () => {
 				</Col>
 				<Col>
 					<Card title="Půjčovna" description="Vše, co potřebuješ k hre." link="/cenik" cta="Více info"></Card>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Rules></Rules>
 				</Col>
 			</Row>
 		</Container>
