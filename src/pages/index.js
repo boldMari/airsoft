@@ -5,6 +5,8 @@ import Card from "../components/Card";
 import Rules from "../components/Rules";
 import Address from "../components/Address";
 import Limits from "../components/Limits";
+import Events from "../components/Events";
+import ControlledCarousel from "../components/ControlledCarousel";
 
 const Home = () => {
 	return (
@@ -12,6 +14,11 @@ const Home = () => {
 			<Row>
 				<Col>
 					<h1>Home</h1>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<ControlledCarousel/>
 				</Col>
 			</Row>
 			<Row className="row-cols-1 row-cols-md-3 mb-3 text-center mt-5">
@@ -27,12 +34,17 @@ const Home = () => {
 			</Row>
 			<Row>
 				<Col>
-					<Rules></Rules>
+					<Rules/>
 				</Col>
 			</Row>
 			<Row>
 				<Col>
-					<Limits></Limits>
+					<Limits/>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Events/>
 				</Col>
 			</Row>
 			<Row>
