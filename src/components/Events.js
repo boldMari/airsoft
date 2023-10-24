@@ -13,7 +13,7 @@ const Events = () => {
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div className="col">
                         <div className="card shadow-sm">
-                            <img src={burza} className="card-img-top cover" width="100%" height="225" role="img"
+                            <img src={burza} alt="" className="card-img-top cover" width="100%" height="225" role="img"
                                 focusable="false" />
                             <div className="card-body">
                                 <h4 className="card-text">Burza</h4>
@@ -24,7 +24,7 @@ const Events = () => {
                     </div>
                     <div className="col">
                         <div className="card shadow-sm">
-                            <img src={dynamitka}className="card-img-top cover" width="100%" height="225" role="img"
+                            <img src={dynamitka}className="card-img-top cover" alt="" width="100%" height="225" role="img"
                                 focusable="false" />
                             <div className="card-body">
                                 <h4 className="card-text">First shot Dynamitka</h4>
@@ -39,7 +39,7 @@ const Events = () => {
                     </div>
                     <div className="col">
                         <div className="card shadow-sm">
-                            <img src={klecany} className="card-img-top cover" width="100%" height="225" role="img"
+                            <img src={klecany} alt="" className="card-img-top cover" width="100%" height="225" role="img"
                                 focusable="false" />
                             <div className="card-body">
                                 <h4 className="card-text">Last shot Klecany</h4>

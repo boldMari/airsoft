@@ -1,0 +1,10 @@
+.cover {
+    object-fit: cover;
+    /* object-position: top; */
+    object-position: center;
+}
+
+.carousel-item img {
+    height: auto;
+    max-height: 600px;
+}
