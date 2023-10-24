@@ -1,6 +1,6 @@
 import helmet from "../assets/images/helmet_1920.jpg"
 
-const Rules = ({title = "Výchozí nadpis", description, link, cta}) => {
+const ShortRules = ({title = "Výchozí nadpis", description, link, cta}) => {
     return (
         <>
         <div class="row featurette">
@@ -36,4 +36,4 @@ const Rules = ({title = "Výchozí nadpis", description, link, cta}) => {
     )
 }
 
-export default Rules
+export default ShortRules

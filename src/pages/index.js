@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
-import Rules from "../components/Rules";
+import ShortRules from "../components/ShortRules";
 import Address from "../components/Address";
 import Limits from "../components/Limits";
 import Events from "../components/Events";
@@ -26,7 +26,7 @@ const Home = () => {
 				</Row>
 				<Row>
 					<Col>
-						<Rules />
+						<ShortRules />
 					</Col>
 				</Row>
 				<Row>
