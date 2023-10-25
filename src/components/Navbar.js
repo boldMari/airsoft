@@ -11,6 +11,9 @@ const Navbar = () => {
 					<NavLink to="/" >
 						Úvod
 					</NavLink>
+					<NavLink to="/informace">
+						Informace
+					</NavLink>
 					<NavLink to="/cenik">
 						Ceník
 					</NavLink>
