@@ -1,10 +1,39 @@
 .cover {
-    object-fit: cover;
-    /* object-position: top; */
-    object-position: center;
+	object-fit: cover;
+	/* object-position: top; */
+	object-position: center;
 }
 
 .carousel-item img {
-    height: auto;
-    max-height: 600px;
+	height: auto;
+	max-height: 600px;
+}
+
+.carousel .carousel-control-next-icon,
+.carousel .carousel-control-prev-icon {
+	width: 4rem;
+	height: 4rem;
+}
+
+.carousel-control-prev-icon {
+	background-image: url("../assets/images/bullet.svg") !important;
+	filter: none !important;
+}
+
+.carousel-control-next-icon {
+	background-image: url("../assets/images/bullet.svg") !important;
+	filter: none !important;
+	transform: scaleX(-1);
+}
+
+[data-bs-theme=dark] .carousel .carousel-caption, 
+[data-bs-theme=dark].carousel .carousel-caption {
+    background: rgba(0,0,0,0.5);
+    border-radius: 0.5rem;
+    font-size: 22px;
+}
+
+[data-bs-theme=dark] .carousel .carousel-indicators [data-bs-target], 
+[data-bs-theme=dark].carousel .carousel-indicators [data-bs-target] {
+    background-color: #fddb51 !important;
 }
