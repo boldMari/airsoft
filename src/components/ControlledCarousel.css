@@ -18,12 +18,12 @@
 .carousel-control-prev-icon {
 	background-image: url("../assets/images/bullet.svg") !important;
 	filter: none !important;
+	transform: scaleX(-1);
 }
 
 .carousel-control-next-icon {
 	background-image: url("../assets/images/bullet.svg") !important;
 	filter: none !important;
-	transform: scaleX(-1);
 }
 
 [data-bs-theme=dark] .carousel .carousel-caption, 
