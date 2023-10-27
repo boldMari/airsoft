@@ -10,12 +10,12 @@ const MainRules = () => {
                             <li>Každý účastník airsoftové hry se jí účastní na vlastní nebezpečí a je povinen řídit se pokyny organizátorů a
                                 zákony ČR. Organizátoři si vyhrazují právo na vyloučení hráče ze hřiště, pokud bude porušovat herní pravidla
                                 nebo zákony ČR,
-                                bude se chovat nebezpečně k sobě nebo svému okolí nebo bude pod vlivem omamných nebo návykových látek.
-                                <li>Pokud bude hráč vyloučen ze hřiště, tak nemá nárok na vrácení příspěvku.Účastníci akce podpisem
+                                bude se chovat nebezpečně k sobě nebo svému okolí nebo bude pod vlivem omamných nebo návykových látek.</li>
+                            <li>Pokud bude hráč vyloučen ze hřiště, tak nemá nárok na vrácení příspěvku.Účastníci akce podpisem
                                     registračního archu souhlasí s pořizováním
                                     audiovizuálního záznamu a to jak od členů organizačního týmu, tak od třetích stran. Zároveň je účastníkům
                                     zakázáno v celém areálu Gastown pořizovat audiovizuální záznam bez souhlasu organizátora.</li>
-                            </li>
+                            
                         </ul>
                         <h3 class="fw-normal text-muted mb-3">Podmínky pro hru</h3>
                         <ul class="bullet p-0">
@@ -48,7 +48,7 @@ const MainRules = () => {
                                 by se měl těmto situacím vyvarovat. Střelba i míření zbraní na nezúčastněné osoby v herním prostoru i mimo něj
                                 je přísně zakázána. Pokud hráč narazí na civilní osobu v herním prostoru je potřeba střelbu okamžitě zastavit
                                 a upozornit na tuto
-                                skutečnost organizátora.
+                                skutečnost organizátora.</li>
                                 <li>Hráčům je přísně zakázáno přemisťování nebo demolování prvků hřiště (překážky, dveře, okna, mříže, nábytek,
                                     sítě v oknech apod.) pokud není organizátory určeno jinak. Neherní prostory budou jasně vyznačeny organizátory
                                     a zbraně nacházející se v těchto prostorech musí být vybité a zajištěné nebo řádně zabezpečené proti náhodnému
@@ -62,7 +62,7 @@ const MainRules = () => {
                                     Pokud je hráč vyzván,
                                     aby sdělil, k jakému týmu patří, má povinnost odpovědět pravdivě nebo tuto informaci nesdělovat vůbec (podle
                                     situace, která je pro něj takticky výhodnější).</li>
-                            </li>
+                            
                         </ul>
                         <h3 class="fw-normal text-muted mb-3">Munice</h3>
                         <ul class="bullet p-0">

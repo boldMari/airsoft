@@ -1,5 +1,5 @@
 import "./Address.css"
-
+import Icon from "./Icon"
 
 const Address = () => {
     return (
@@ -9,8 +9,15 @@ const Address = () => {
                 <div className="col-md-7">
                 <h2 className="featurette-heading fw-normal lh-1 mt-3"><span class="text-primary">Kde nás najdete.</span> <span
                     className="text-body-secondary">Nově jsmě v Bohnicích </span></h2>
-                <p className="lead location mt-3">Dynamitka Alfréda Nobela, V Zámcích 41, Praha 8 - Bohnice</p>
-                <p className="lead mail mt-3"> <a href="mailto:bulletfarmklecany@gmail.com">bulletfarmklecany@gmail.com</a></p>
+                    <div className="col d-flex align-items-start">
+                        <Icon name="location" title="Mail" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
+                        <p className="lead mt-3">Dynamitka Alfréda Nobela, V Zámcích 41, Praha 8 - Bohnice</p>
+                     </div>
+                    
+                    <div className="col d-flex align-items-start"> 
+                    <Icon name="mail" title="Mail" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
+                    <p className="lead  mt-3"> <a href="mailto:bulletfarmklecany@gmail.com">bulletfarmklecany@gmail.com</a></p>
+                    </div>   
                 </div>
             </div>
         </div>
