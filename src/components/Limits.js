@@ -1,4 +1,3 @@
-import "./Limits.css"
 import Icon from "./Icon";
 
 const Limits = () => {

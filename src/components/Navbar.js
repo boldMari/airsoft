@@ -3,12 +3,18 @@ import { NavLink, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Icon from "./Icon";
 import Bullet from "../assets/images/bulletfarm.png";
-import './Navbar.css';
+import styled from 'styled-components';
+
+const Nav = styled.nav`
+	.nav-link {
+		font-size: 1.2rem;
+	}
+`;
 
 const Navbar = () => {
 	return (
 		<>
-			<nav class="navbar navbar-expand-lg my-3 bg-body-tertiary">
+			<Nav className="navbar navbar-expand-lg my-3 bg-body-tertiary">
 				<Container>
 					<Link className="navbar-brand" to="/"><img src={Bullet} alt="Bullet Farm" width="38" height="38" /></Link>
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,7 +47,7 @@ const Navbar = () => {
 						</a>
 					</div>
 				</Container>
-			</nav>
+			</Nav>
 		</>
 	);
 };

@@ -1,9 +1,6 @@
 import klecany from "../assets/images/klecany_.jpg"
 import burza from "../assets/images/airsoft-burza_1920.jpg"
 import dynamitka from "../assets/images/mp7fRR.jpeg"
-import "./Events.css"
-
-
 
 const Events = () => {
     return (

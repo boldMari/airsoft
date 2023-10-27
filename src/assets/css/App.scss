@@ -7,11 +7,16 @@ $primary: $yellow;
 @import '~bootstrap/scss/bootstrap';
 
 ul.bullet {
-    list-style: none;
+	list-style: none;
 }
 
 ul.bullet li {
-    padding-left: 2.5rem;
-    background: url(../images/bullet.svg) 0 0.3rem no-repeat;
-    background-size: 1.5rem;
+	padding-left: 2.5rem;
+	background: url(../images/bullet.svg) 0 0.3rem no-repeat;
+	background-size: 1.5rem;
+}
+
+.cover {
+	object-fit: cover;
+	object-position: center;
 }

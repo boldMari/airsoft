@@ -1,7 +1,3 @@
-import "./Card.css"
-
-
-
 const Card = ({title = "Výchozí nadpis", description, link, cta}) => {
     return (
         <>
