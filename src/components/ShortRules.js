@@ -24,7 +24,7 @@ const ShortRules = ({title = "Výchozí nadpis", description, link, cta}) => {
                     <li>ZÁKAZ demolování, přenášení, barikádování a manipulace s překážkami.</li>
                 </ul>
                 <div className="d-flex justify-content-end">
-                    <a href="/pravidla" class="w-40 btn btn-lg btn-primary border-primary text-shadow">Více info</a>
+                    <a href="/pravidla" class="w-40 btn btn-lg btn-primary border-primary text-shadow">Kompletní pravidla</a>
                 </div>
             </div>
         <div className="col-md-5 order-md-1 mt-4">

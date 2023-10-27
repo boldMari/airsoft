@@ -3,9 +3,9 @@ const MainRules = () => {
         <div>
             <div class="container">
                 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-body-tertiary">
-                    <div class="p-lg-5 mx-auto my-5">
+                    <div class="p-lg-5 mx-auto my-3">
                         <h2 class="display-3 fw-bold text-center">Herní řád hřiště </h2>
-                        <h3 class="fw-normal text-muted mb-3">Úvodní ustanovení</h3>
+                        <h3 class="fw-normal text-muted mb-3 my-5">Úvodní ustanovení</h3>
                         <ul class="bullet p-0">
                             <li>Každý účastník airsoftové hry se jí účastní na vlastní nebezpečí a je povinen řídit se pokyny organizátorů a
                                 zákony ČR. Organizátoři si vyhrazují právo na vyloučení hráče ze hřiště, pokud bude porušovat herní pravidla

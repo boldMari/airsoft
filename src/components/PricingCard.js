@@ -1,0 +1,105 @@
+import g36 from "../assets/images/g36.jpg"
+import vest from "../assets/images/vest.png"
+import bryle from "../assets/images/tacticke-ochranne-bryle.jpg"
+
+
+
+const PricingCard = () => {
+    return (
+        <div>
+            <div class="container">
+                <h2 class="featurette-heading fw-normal lh-1 mt-4 pb-2 border-bottom text-primary">Vstupné</h2>
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-5">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal text-shadow">Celodenní vstup</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">150 Kč<small class="text-body-secondary fw-light">/den</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4 shadow-sm">
+                                    <li>Hra je od 9:00 - 16:00 hod.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal text-shadow">Puldenní vstup</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">100 Kč<small class="text-body-secondary fw-light">/den</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Hra od 9:00 do 13:00 hod.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal text-shadow">Permice</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">850 Kč<small class="text-body-secondary fw-light">/10 vstupu</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>10 celodenních vstupu.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="featurette-heading fw-normal lh-1 mt-4 pb-2 border-bottom text-primary">Pujčovna</h2>
+                <div class="container">
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src={g36} class="card-img-top cover" width="100%" height="250" alt="" role="img"
+                                    focusable="false" />
+                                <div class="card-body">
+                                    <p class="card-text">Nabízime k pujčení G36c, co je airsoftová elektrická zbran, která funguje na principu elektromotoru napájeného akumulátorem.</p>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="btn-group">
+                                            <div class="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">20 Kč/den</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src={vest} class="card-img-top cover" width="100%" height="250" alt="" role="img"
+                                    focusable="false" />
+                                <div class="card-body">
+                                    <p class="card-text">Každý hráč u sebe musí mít ŽLUTOU reflexní vestu pro označení jeho vyřazení ze hry. Osoby bez reflexní vesty jsou považovány za hrající hráče.</p>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="btn-group">
+                                            <div class="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">20 Kč/den</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src={bryle} class="card-img-top cover" alt="" width="100%" height="250" role="img" focusable="false" />
+                                <div class="card-body">
+                                    <p class="card-text">Povinností nosit ochranné brýle určené pro airsoft (síťované jsou zakázané) po celou dobu pohybu v prostoru a to i mimo hru. </p>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="btn-group">
+                                            <div class="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">20 Kč/den</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default PricingCard
