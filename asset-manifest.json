@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/airsoft/static/css/main.76c5b6cf.css",
-    "main.js": "/airsoft/static/js/main.124873dd.js",
-    "static/media/mp7fRR.jpeg": "/airsoft/static/media/mp7fRR.eec045b780961db1a266.jpeg",
-    "static/media/helmet_1920.jpg": "/airsoft/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
-    "static/media/airsoft-burza_1920.jpg": "/airsoft/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
-    "static/media/military-g385_1920.jpg": "/airsoft/static/media/military-g385_1920.e32a8fa32ef08b014f71.jpg",
-    "static/media/airsoft-replica_1920.jpg": "/airsoft/static/media/airsoft-replica_1920.8dbac8e009f3b0daa925.jpg",
-    "static/media/military_1920.jpg": "/airsoft/static/media/military_1920.bc8b304a7f6c6c662193.jpg",
-    "static/media/klecany_.jpg": "/airsoft/static/media/klecany_.58d27362ee13e6bcc4ef.jpg",
-    "static/media/bulletfarm.png": "/airsoft/static/media/bulletfarm.5babf473804cfcaea0c2.png",
-    "static/media/vest.png": "/airsoft/static/media/vest.4def7cd9fb267f71364a.png",
-    "static/media/tacticke-ochranne-bryle.jpg": "/airsoft/static/media/tacticke-ochranne-bryle.72ed8cf27bc62bc716bb.jpg",
-    "static/media/g36.jpg": "/airsoft/static/media/g36.0ef1ed278654dc3941db.jpg",
-    "static/media/icons.svg": "/airsoft/static/media/icons.74a068632d257159c018f692e42a6b17.svg",
-    "static/media/bullet.svg": "/airsoft/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
-    "index.html": "/airsoft/index.html",
-    "main.76c5b6cf.css.map": "/airsoft/static/css/main.76c5b6cf.css.map",
-    "main.124873dd.js.map": "/airsoft/static/js/main.124873dd.js.map"
+    "main.css": "/static/css/main.8ca51951.css",
+    "main.js": "/static/js/main.4fec243d.js",
+    "static/media/mp7fRR.jpeg": "/static/media/mp7fRR.eec045b780961db1a266.jpeg",
+    "static/media/helmet_1920.jpg": "/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
+    "static/media/airsoft-burza_1920.jpg": "/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
+    "static/media/military-g385_1920.jpg": "/static/media/military-g385_1920.e32a8fa32ef08b014f71.jpg",
+    "static/media/airsoft-replica_1920.jpg": "/static/media/airsoft-replica_1920.8dbac8e009f3b0daa925.jpg",
+    "static/media/military_1920.jpg": "/static/media/military_1920.bc8b304a7f6c6c662193.jpg",
+    "static/media/klecany_.jpg": "/static/media/klecany_.58d27362ee13e6bcc4ef.jpg",
+    "static/media/bulletfarm.png": "/static/media/bulletfarm.5babf473804cfcaea0c2.png",
+    "static/media/vest.png": "/static/media/vest.4def7cd9fb267f71364a.png",
+    "static/media/tacticke-ochranne-bryle.jpg": "/static/media/tacticke-ochranne-bryle.72ed8cf27bc62bc716bb.jpg",
+    "static/media/g36.jpg": "/static/media/g36.0ef1ed278654dc3941db.jpg",
+    "static/media/icons.svg": "/static/media/icons.74a068632d257159c018f692e42a6b17.svg",
+    "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
+    "index.html": "/index.html",
+    "main.8ca51951.css.map": "/static/css/main.8ca51951.css.map",
+    "main.4fec243d.js.map": "/static/js/main.4fec243d.js.map"
   },
   "entrypoints": [
-    "static/css/main.76c5b6cf.css",
-    "static/js/main.124873dd.js"
+    "static/css/main.8ca51951.css",
+    "static/js/main.4fec243d.js"
   ]
 }
