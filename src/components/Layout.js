@@ -1,10 +1,10 @@
-import Navbar from './Navbar';
+import MyNavbar from './Navbar';
 
 const Layout = ({children}) => {
 
 	return (
 		<>
-			<Navbar />
+			<MyNavbar />
 			<main>
 				{children}
 			</main>

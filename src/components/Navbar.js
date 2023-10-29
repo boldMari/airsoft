@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Icon from "./Icon";
 import Bullet from "../assets/images/bulletfarm.png";
 import styled from 'styled-components';
+import Navbar from 'react-bootstrap/Navbar';
 
 const Nav = styled.nav`
 	.nav-link {
@@ -11,30 +12,31 @@ const Nav = styled.nav`
 	}
 `;
 
-const Navbar = () => {
+const MyNavbar = () => {
 	return (
 		<>
-			<Nav className="navbar navbar-expand-lg my-3 bg-body-tertiary">
+			<Navbar className="my-3 bg-body-tertiary" variant="dark" expand="md">
 				<Container>
-					<Link className="navbar-brand" to="/"><img src={Bullet} alt="Bullet Farm" width="38" height="38" /></Link>
-					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-						<li className="nav-item">
-							<NavLink className="nav-link" to="/">Úvod</NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink className="nav-link" to="/informace">Informace</NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink className="nav-link" to="/cenik">Ceník</NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink className="nav-link" to="/pravidla">Pravidla</NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink className="nav-link" to="/contact">Kontakt</NavLink>
-						</li>
-					</ul>
-
+					<Navbar.Brand href="/"><img src={Bullet} alt="Bullet Farm" width="38" height="38" /></Navbar.Brand>
+					<Navbar.Collapse id="basic-navbar-nav">
+						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/">Úvod</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/informace">Informace</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/cenik">Ceník</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/pravidla">Pravidla</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/contact">Kontakt</NavLink>
+							</li>
+						</ul>
+					</Navbar.Collapse>
 					<div className="d-flex">
 						<a href="https://www.facebook.com/airsoftklecany">
 							<Icon name="facebook" title="Facebook" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3" />
@@ -46,10 +48,11 @@ const Navbar = () => {
 							<Icon name="email" title="Email" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3" />
 						</a>
 					</div>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				</Container>
-			</Nav>
+			</Navbar>
 		</>
 	);
 };
 
-export default Navbar;
+export default MyNavbar;
