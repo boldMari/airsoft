@@ -3,9 +3,9 @@ import helmet from "../assets/images/helmet_1920.jpg"
 const ShortRules = () => {
     return (
         <>
-            <div class="row featurette">
+            <div className="row featurette">
                 <div className="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1 mt-4"><span className="text-primary">PRAVIDLA NA HŘIŠTI.</span> <span
+                    <h2 className="featurette-heading fw-normal lh-1 mt-4"><span className="text-primary">PRAVIDLA NA HŘIŠTI.</span> <span
                         className="text-body-secondary">Výtah z pravidel Bullet Farm.</span></h2>
                     <ul className="lead bullet p-0 pt-2">
                         <li>Střelba mimo hru je zakázaná. Mimo hru je zbraň zajištěna.</li>
@@ -24,11 +24,11 @@ const ShortRules = () => {
                         <li>ZÁKAZ demolování, přenášení, barikádování a manipulace s překážkami.</li>
                     </ul>
                     <div className="d-flex justify-content-end">
-                        <a href="/pravidla" class="w-40 btn btn-lg btn-primary border-primary text-shadow">Kompletní pravidla</a>
+                        <a href="#/pravidla" className="w-40 btn btn-lg btn-primary border-primary text-shadow">Kompletní pravidla</a>
                     </div>
                 </div>
                 <div className="col-md-5 order-md-1 mt-4">
-                    <img src={helmet} alt="" class="featurette-image img-fluid mx-auto" width="500" height="500"
+                    <img src={helmet} alt="" className="featurette-image img-fluid mx-auto" width="500" height="500"
                         role="img" focusable="false" />
                 </div>
             </div>
