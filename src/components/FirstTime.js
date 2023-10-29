@@ -33,7 +33,7 @@ const FirstTime = () => {
                     <h3 class="fw-normal text-muted mb-3">Jak se k nám dostanete?</h3>
                     <ul class="bullet p-0">
                         <li>MHD: zastávka Zámky.</li>
-                        <li>Parkovaní: v okolí areálu.</li>
+                        <li>Parkovaní: ul. U Drahaně, Praha 8.</li>
                     </ul>
 
                 </div>

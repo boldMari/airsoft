@@ -4,7 +4,6 @@ import Home from './pages';
 import Contact from './pages/contact';
 import Layout from './components/Layout';
 import Rules from './pages/Rules';
-import Information from './pages/Information';
 import Pricing from './pages/Pricing';
 import FirstTime from './components/FirstTime';
 
