@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import Rules from './pages/Rules';
 import Information from './pages/Information';
 import Pricing from './pages/Pricing';
+import FirstTime from './components/FirstTime';
 
 function App() {
 	return (
@@ -15,7 +16,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/pravidla' element={<Rules/>} />
-					<Route path='/informace' element={<Information/>} />
+					<Route path='/informace' element={<FirstTime/>} />
 					<Route path='/cenik' element={<Pricing/>} />
 				</Routes>
 			</Layout>
