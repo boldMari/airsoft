@@ -14,8 +14,12 @@ const Address = () => {
 						<h2 className="featurette-heading fw-normal lh-1 mt-3 text-primary">Kde nás najdete</h2>
 						<h3 className="text-body-secondary">Nově jsmě v Bohnicích</h3>
 						<div className="col d-flex align-items-start">
-							<Icon name="location" title="Mail" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
+							<Icon name="location" title="Location" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
 							<p className="lead mt-3">Dynamitka Alfréda Nobela, V Zámcích 41, Praha 8 - Bohnice</p>
+						</div>
+						<div className="col d-flex align-items-start">
+							<Icon name="parking" title="Parking" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
+							<p className="lead mt-3">Parkovat lze: U Drahaně, Praha 8. </p>
 						</div>
 
 						<div className="col d-flex align-items-start">
