@@ -12,7 +12,7 @@ const Address = () => {
 				<div className="row featurette">
 					<div className="col-md-7">
 						<h2 className="featurette-heading fw-normal lh-1 mt-3 text-primary">Kde nás najdete</h2>
-						<h3 className="text-body-secondary">Nově jsmě v Bohnicích</h3>
+						<h3 className="text-body-secondary">Nově jsme v Bohnicích</h3>
 						<div className="col d-flex align-items-start">
 							<Icon name="location" title="Location" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
 							<p className="lead mt-3">Dynamitka Alfréda Nobela, V Zámcích 41, Praha 8 - Bohnice</p>
@@ -24,7 +24,7 @@ const Address = () => {
 
 						<div className="col d-flex align-items-start">
 							<Icon name="mail" title="Mail" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
-							<p className="lead  mt-3"> <a href="mailto:bulletfarmklecany@gmail.com">bulletfarmklecany@gmail.com</a></p>
+							<p className="lead mt-3"> <a href="mailto:bulletfarmklecany@gmail.com">bulletfarmklecany@gmail.com</a></p>
 						</div>
 					</div>
 				</div>

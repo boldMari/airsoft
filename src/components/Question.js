@@ -45,7 +45,7 @@ const Question = ({ title, info }) => {
 			<OneQuestion>
 				<section>
 					<h2>{title}</h2>
-					<button onClick={() => setShow(!show)}>Odpověd</button>
+					<button onClick={() => setShow(!show)}>Odpověď</button>
 				</section>
 				{show && <p>{info}</p>}
 			</OneQuestion>
