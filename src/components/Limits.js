@@ -1,17 +1,37 @@
 import Icon from "./Icon";
+import { useState } from "react";
+import Toggle from "./Toggle";
+
 
 const Limits = () => {
+
+    const [originalValue, setOriginalValue] = useState("1,7 J");
+    const [value, setValue] = useState(originalValue);
+    const [toggled, setToggled] = useState(false);
+
+    const buttonHandler = () => {
+        
+        // Toggle between originalValue and the updated value
+        setValue(toggled ? originalValue : "3 J");
+        // Toggle the state of the 'toggled' variable
+        setToggled(!toggled);
+    }
+
 
     return (
         <>
             <div className="container px-4 py-5" id="icon-grid">
                 <h2 className="pb-2 border-bottom text-primary">Limity</h2>
             </div>
+            <div>
+            <Toggle onChange={buttonHandler} ></Toggle>
+                <p> Změna limitů : {toggled ? "Neděle" : "Sobota"}</p>
+            </div>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 py-5">
                 <div className="col d-flex align-items-start">
                     <Icon name="ak47" title="Granade" size='2em' className="bi text-body-secondary flex-shrink-0 me-3" width="50px" height="50px" />
                     <div>
-                        <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">AEG/HPA/plyn 𝟭.𝟳 𝗝</h3>
+                        <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">AEG/HPA/plyn {value}</h3>
                         <p>(117m/s s kuličkami 0,25g; plynovky a HPA měříme na používaném střelivu, ostatní na 0,25g).</p>
                     </div>
                 </div>
@@ -56,6 +76,7 @@ const Limits = () => {
                     </div>
                 </div>
             </div>
+         
             <hr className="featurette-divider"></hr>
         </>
 
