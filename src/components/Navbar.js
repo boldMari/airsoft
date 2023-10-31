@@ -19,7 +19,7 @@ const MyNavbar = () => {
 				<Container>
 					<Navbar.Brand href="/"><img src={Bullet} alt="Bullet Farm" width="38" height="38" /></Navbar.Brand>
 					<Navbar.Collapse id="basic-navbar-nav" className="order-3 order-md-2">
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						<ul className="navbar-nav me-auto">
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/">Úvod</NavLink>
 							</li>
