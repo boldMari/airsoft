@@ -1,12 +1,10 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "../components/Card";
-import ShortRules from "../components/ShortRules";
-import Address from "../components/Address";
-import Limits from "../components/Limits";
-import Events from "../components/Events";
-import ControlledCarousel from "../components/ControlledCarousel";
+import { Container, Row, Col } from "react-bootstrap";
+import Card from "components/Card";
+import ShortRules from "components/ShortRules";
+import Address from "components/Address";
+import Limits from "components/Limits";
+import Events from "components/Events";
+import ControlledCarousel from "components/ControlledCarousel";
 
 const Home = () => {
 	return (

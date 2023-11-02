@@ -1,14 +1,12 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import PricingCard from "../components/PricingCard";
+import { Container, Row, Col } from "react-bootstrap";
+import PricingCard from "components/PricingCard";
 
 const Pricing = () => {
   return (
 	<Container>
 		<Row>
 			<Col>
-				<PricingCard></PricingCard>
+				<PricingCard/>
 			</Col>
 		</Row>
 	</Container>
