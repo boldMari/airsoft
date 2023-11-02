@@ -1,16 +1,9 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Icon from "./Icon";
 import Bullet from "../assets/images/bulletfarm.png";
-import styled from 'styled-components';
 import Navbar from 'react-bootstrap/Navbar';
-
-const Nav = styled.nav`
-	.nav-link {
-		font-size: 1.2rem;
-	}
-`;
 
 const MyNavbar = () => {
 	return (
@@ -31,6 +24,9 @@ const MyNavbar = () => {
 							</li>
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/pravidla">Pravidla</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/udalosti">Události</NavLink>
 							</li>
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/contact">Kontakt</NavLink>
