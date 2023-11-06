@@ -15,22 +15,34 @@ function mapDocumentToEvent(document) {
 }
 
 export async function getEvents() {
-	const { documents } = await databases.listDocuments(databaseId, collectionId);
-	return {
-		events: documents.map(mapDocumentToEvent)
+	try {
+		const { documents } = await databases.listDocuments(databaseId, collectionId);
+		return {
+			events: documents.map(mapDocumentToEvent)
+		}
+	} catch (error) {
+		return { error: error.message };
 	}
 }
 
 export async function getEventById(eventId) {
-	const document = await databases.getDocument(databaseId, collectionId, eventId);
-	return {
-		event: mapDocumentToEvent(document)
+	try {
+		const document = await databases.getDocument(databaseId, collectionId, eventId);
+		return {
+			event: mapDocumentToEvent(document)
+		}
+	} catch (error) {
+		return { error: error.message };
 	}
 }
 
 export async function createEvent(event) {
-	const document = await databases.createDocument(databaseId, collectionId, ID.unique(), event);
-	return {
-		event: mapDocumentToEvent(document)
+	try {
+		const document = await databases.createDocument(databaseId, collectionId, ID.unique(), event);
+		return {
+			event: mapDocumentToEvent(document)
+		}
+	} catch (error) {
+		return { error: error.message };
 	}
 }
