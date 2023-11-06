@@ -11,6 +11,7 @@ const Input = styled.input`
 	opacity: 0;
 	width: 0;
 	height: 0;
+    display: none;
 
 	&:checked + span {
 		background-color: #fddb51;
@@ -36,9 +37,10 @@ const Slider = styled.span`
 	width: 50px;
 	height: 25px;
 	border-radius: 100px;
-	background-color: #bfbfbf;
+	background-color: #fddb51;
 	position: relative;
 	transition: background-color .2s;
+    top: 7px;
 
 	&::before {
 		content: '';
