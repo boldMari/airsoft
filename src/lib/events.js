@@ -1,4 +1,4 @@
-import { databases, ID } from './appwrite';
+import { databases, ID } from 'lib/appwrite';
 
 const databaseId = process.env.REACT_APP_APPWRITE_EVENTS_DATABASE_ID;
 const collectionId = process.env.REACT_APP_APPWRITE_EVENTS_COLLECTION_ID;
@@ -9,6 +9,7 @@ function mapDocumentToEvent(document) {
 		name: document.name,
 		description: document.description,
 		date: document.date,
+		imageFileId: document.imageFileId
 	}
 	return event;
 }
