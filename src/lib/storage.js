@@ -20,3 +20,12 @@ export function getImageUrl(fileId) {
 		throw error;
 	}
 };
+
+export async function deleteFileById(fileId) {
+	try {
+		const data = await storage.deleteFile(bucketId, fileId);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}

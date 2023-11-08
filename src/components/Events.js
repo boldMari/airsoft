@@ -60,7 +60,7 @@ const Events = () => {
 										</Link>
 										<div className="card-body">
 											<h4>{event.name}</h4>
-											<p>{event.$id}</p>
+											{/* <p>{event.$id}</p> */}
 											<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
 											<p>{event.description || "Žádný popis"}</p>
 											<div className="d-flex justify-content-between align-items-center">

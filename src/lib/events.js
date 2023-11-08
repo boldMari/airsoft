@@ -1,4 +1,5 @@
 import { databases, ID } from 'lib/appwrite';
+import { deleteFileById } from 'lib/storage';
 
 const databaseId = process.env.REACT_APP_APPWRITE_EVENTS_DATABASE_ID;
 const collectionId = process.env.REACT_APP_APPWRITE_EVENTS_COLLECTION_ID;
@@ -42,6 +43,19 @@ export async function createEvent(event) {
 		return {
 			event: mapDocumentToEvent(document)
 		}
+	} catch (error) {
+		return { error: error.message };
+	}
+}
+
+export async function deleteEventById(eventId) {
+	try {
+		const { event } = await getEventById(eventId);
+		if (event.imageFileId) {
+			await deleteFileById(event.imageFileId);
+		}
+		const deleteEvent = await databases.deleteDocument(databaseId, collectionId, event.$id);
+		return deleteEvent;
 	} catch (error) {
 		return { error: error.message };
 	}

@@ -1,5 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getCurrentSession, deleteCurrentSession, logIn } from 'lib/auth';
+import { getTeams } from 'lib/user';
+
+const teamAdminId = process.env.REACT_APP_TEAM_ADMIN_ID;
 
 export const AuthContext = createContext(undefined);
 
@@ -14,6 +17,7 @@ export const AuthProvider = ({ children }) => {
 
 export function useAuthState() {
 	const [session, setSession] = useState();
+	const [isAdmin, setIsAdmin] = useState(false);
 
 	useEffect(() => {
 		(async function run() {
@@ -21,6 +25,15 @@ export function useAuthState() {
 			setSession(data.session);
 		})();
 	}, []);
+
+	useEffect(() => {
+		(async function run() {
+			if(!session?.$id) return;
+			const { teams } = await getTeams();
+			const isAdmin = !!teams.find(team => team.$id === teamAdminId);
+			setIsAdmin(isAdmin);
+		})();
+	}, [session?.$id]);
 
 	async function logOut() {
 		await deleteCurrentSession();
@@ -33,7 +46,7 @@ export function useAuthState() {
 	}
 
 	return {
-		session, logIn: logInWrapper, logOut
+		session, isAdmin, logIn: logInWrapper, logOut
 	}
 }
 
