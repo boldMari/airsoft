@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { logIn } from 'lib/auth';
+import { useAuth } from 'hooks/useAuth';
 
 function Login() {
 	const [email, setEmail] = useState('@');
@@ -9,6 +9,7 @@ function Login() {
 	const [validated, setValidated] = useState(false);
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
+	const { logIn, session } = useAuth();
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -18,17 +19,25 @@ function Login() {
 		if (form.checkValidity() === false) {
 			event.stopPropagation();
 		} else {
-			const login = await logIn(email, password);
-			
-			if (login.error) {
-				setError(login.error);
-			} else {
-				setError(null);
-				console.log(login);
-				navigate('/udalosti');
-			}
+			const loginRequest = await logIn(email, password);
+			return navigate('/udalosti');
+
+			// if (!loginRequest) {
+			// 	setError(true);
+			// 	console.log('some issue');
+			// } else {
+			// 	setError(null);
+			// 	console.log('no issue');
+			// 	return navigate('/udalosti');
+			// }
 		}
 	};
+
+	useEffect(() => {
+		if (session) {
+			return navigate('/udalosti');
+		}
+	}, [session]);
 
 	return (
 		<Container>

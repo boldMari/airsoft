@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "hooks/useAuth";
 import Container from "react-bootstrap/Container";
 import Icon from "./Icon";
 import Bullet from 'assets/images/bulletfarm.png';
 import Navbar from 'react-bootstrap/Navbar';
-import { getCurrentSession, logOut } from "lib/auth";
 
 const MyNavbar = () => {
-	const [session, setSession] = useState();
-
-	useEffect(() => {
-
-		(async function run() {
-			const data = await getCurrentSession();
-			console.log('session', data.session);
-			setSession(data.session);
-		})();
-	}, []);
+	const { session, logOut } = useAuth();
 
 	const handleLogOut = async () => {
-		const data = await logOut();
-		console.log('logout', data);
-		setSession(undefined);
+		await logOut();
 	}
 
 	return (

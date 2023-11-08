@@ -18,7 +18,7 @@ export async function getCurrentSession() {
 	}
 }
 
-export async function logOut() {
+export async function deleteCurrentSession() {
 	try {
 		await account.deleteSession('current');
 		return {};
