@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
-import burza from "assets/images/airsoft-burza_1920.jpg"
-import { getEventById } from 'lib/events';
+import { useParams, useNavigate } from "react-router-dom";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { getEventById, deleteEventById } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
+import { useAuth } from "hooks/useAuth";
+import burza from "assets/images/airsoft-burza_1920.jpg"
 
 function Event() {
 	const { id } = useParams();
 	const [event, setEvent] = useState(undefined);
 	const imageUrl = event?.imageFileId && getImageUrl(event.imageFileId);
+	const navigate = useNavigate();
+	const { isAdmin } = useAuth();
+
+	const handleDeleteEvent = async () => {
+		if ( !event.$id ) return;
+		await deleteEventById(event.$id);
+		navigate('/udalosti');
+	};
 
 	useEffect(() => {
 
@@ -29,10 +38,15 @@ function Event() {
 
 							<div className="card shadow-sm">
 								<img src={imageUrl || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
-								< div className="card-body">
+								<div className="card-body">
 									{/* <p>{event.$id}</p> */}
 									<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
 									<p>{event.description || "Žádný popis"}</p>
+									{isAdmin && (
+										<div className="btn-group">
+											<Button variant='danger' onClick={handleDeleteEvent}>Smazat událost</Button>
+										</div>
+									)}
 								</div>
 							</div>
 						</>
