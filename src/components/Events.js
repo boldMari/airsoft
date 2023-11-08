@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuth } from "hooks/useAuth";
 import { getEvents } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
 import burza from "assets/images/airsoft-burza_1920.jpg"
 
 const Events = () => {
-
 	const [events, setEvents] = useState();
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
+	const { session } = useAuth();
 
 	useEffect(() => {
 
@@ -30,8 +31,19 @@ const Events = () => {
 	return (
 		<>
 			<Container>
-				<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Události</h2>
-				<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
+				<Row>
+					<Col>
+						<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Události</h2>
+					</Col>
+					{session && (
+						// <Col className="d-flex justify-content-end">
+						<Col className='align-self-center text-end'>
+							<div className="btn-group">
+								<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
+							</div>
+						</Col>
+					)}
+				</Row>
 				{loading ? (
 					<p>Načítám...</p>
 				) : error ? (
