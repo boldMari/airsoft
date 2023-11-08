@@ -7,8 +7,8 @@ import Contact from 'pages/contact';
 import Rules from 'pages/rules';
 import Pricing from 'pages/pricing';
 import Events from 'pages/events';
+import Login from 'pages/login';
 
-// import { Events, Layout, FirstTime } from 'components';
 import Layout from 'components/Layout';
 import FirstTime from 'components/FirstTime';
 
@@ -25,6 +25,7 @@ function App() {
 					<Route path='/udalosti' element={<Events/>} />
 					<Route path='/udalosti/vytvorit' element={<New/>} />
 					<Route path='/udalosti/:id' element={<Event/>} />
+					<Route path='/prihlasit' element={<Login/>} />
 				</Routes>
 			</Layout>
 		</Router>

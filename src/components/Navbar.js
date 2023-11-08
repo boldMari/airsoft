@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Icon from "./Icon";
-import Bullet from "../assets/images/bulletfarm.png";
+import Bullet from 'assets/images/bulletfarm.png';
 import Navbar from 'react-bootstrap/Navbar';
+import { getCurrentSession, logOut } from "lib/auth";
 
 const MyNavbar = () => {
+	const [session, setSession] = useState();
+
+	useEffect(() => {
+
+		(async function run() {
+			const data = await getCurrentSession();
+			console.log('session', data.session);
+			setSession(data.session);
+		})();
+	}, []);
+
+	const handleLogOut = async () => {
+		const data = await logOut();
+		console.log('logout', data);
+		setSession(undefined);
+	}
+
 	return (
 		<>
 			<Navbar className="my-3 bg-body-tertiary" variant="dark" expand="md">
@@ -29,8 +47,18 @@ const MyNavbar = () => {
 								<NavLink className="nav-link" to="/udalosti">Události</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link" to="/contact">Kontakt</NavLink>
+								<NavLink className="nav-link" to="/kontakt">Kontakt</NavLink>
 							</li>
+							{session && (
+							<li className="nav-item">
+								<NavLink className="nav-link" onClick={handleLogOut}>Odhlásit</NavLink>
+							</li>
+							)}
+							{!session && (
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/prihlasit">Přihlásit</NavLink>
+							</li>
+							)}
 						</ul>
 					</Navbar.Collapse>
 					<div className="d-flex order-1 order-md-3">
