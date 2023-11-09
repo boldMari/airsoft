@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AppwriteException } from 'appwrite';
 import { useAuth } from 'hooks/useAuth';
 
 function Login() {
@@ -19,17 +20,25 @@ function Login() {
 		if (form.checkValidity() === false) {
 			event.stopPropagation();
 		} else {
-			const loginRequest = await logIn(email, password);
-			return navigate('/udalosti');
-
-			// if (!loginRequest) {
-			// 	setError(true);
-			// 	console.log('some issue');
-			// } else {
-			// 	setError(null);
-			// 	console.log('no issue');
-			// 	return navigate('/udalosti');
-			// }
+			try {
+				const loginRequest = await logIn(email, password);
+				if (loginRequest instanceof AppwriteException) {
+					console.log('login try error', loginRequest.type);
+					setError(loginRequest.type);
+					if (loginRequest.type === 'general_argument_invalid' || loginRequest.type === 'user_invalid_credentials') {
+						setError('Zadané přihlašovací údaje jsou neplatné. Zkuste to znovu.');
+					} else {
+						setError('Chyba přihlášení. Zkuste to znovu.');
+					}
+				} else {
+					return navigate('/udalosti');
+				}
+			} catch (error) {
+				console.log('else catch error', error);
+				if (error instanceof AppwriteException) {
+					setError('Chyba přihlášení. Zkuste to znovu.');
+				}
+			}
 		}
 	};
 
@@ -78,9 +87,9 @@ function Login() {
 						</Button>
 					</Form>
 					{error && (
-						<Form.Control.Feedback type="invalid" className="mt-3">
-							Chyba přihlášení. Zkontrolujte zadané údaje.
-						</Form.Control.Feedback>
+						<div className="alert alert-danger mt-3" role="alert">
+							{error}
+						</div>
 					)}
 				</Col>
 			</Row>

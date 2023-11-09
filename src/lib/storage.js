@@ -8,7 +8,7 @@ export async function uploadImage(file) {
 		return data;
 	} catch (error) {
 		console.error('Error uploading image:', error);
-		throw error;
+		return error;
 	}
 };
 
@@ -17,7 +17,7 @@ export function getImageUrl(fileId) {
 		return storage.getFilePreview(bucketId, fileId);
 	} catch (error) {
 		console.error('Error getting image URL:', error);
-		throw error;
+		return error;
 	}
 };
 
@@ -26,6 +26,6 @@ export async function deleteFileById(fileId) {
 		const data = await storage.deleteFile(bucketId, fileId);
 		return data;
 	} catch (error) {
-		throw error;
+		return error;
 	}
 }
