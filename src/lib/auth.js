@@ -5,7 +5,7 @@ export async function logIn(email, password) {
 		const session = await account.createEmailSession(email, password);
 		return session;
 	} catch (error) {
-		return { error: error.message };
+		return error;
 	}
 }
 

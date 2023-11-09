@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { AppwriteException } from 'appwrite';
 import { getCurrentSession, deleteCurrentSession, logIn } from 'lib/auth';
 import { getTeams } from 'lib/user';
 
@@ -28,7 +29,7 @@ export function useAuthState() {
 
 	useEffect(() => {
 		(async function run() {
-			if(!session?.$id) return;
+			if (!session?.$id) return;
 			const { teams } = await getTeams();
 			const isAdmin = !!teams.find(team => team.$id === teamAdminId);
 			setIsAdmin(isAdmin);
@@ -41,8 +42,15 @@ export function useAuthState() {
 	}
 
 	async function logInWrapper(email, password) {
-		const newSession = await logIn(email, password);
-		setSession(newSession);
+		try {
+			const newSession = await logIn(email, password);
+			if ( newSession instanceof AppwriteException ) {
+				return newSession;
+			}
+			setSession(newSession);
+		} catch (error) {
+			return error;
+		}
 	}
 
 	return {

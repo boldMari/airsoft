@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { getEventById, deleteEventById } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
 import { useAuth } from "hooks/useAuth";
+import Loading from 'components/Loading';
 import burza from "assets/images/airsoft-burza_1920.jpg"
 
 function Event() {
@@ -14,7 +15,7 @@ function Event() {
 	const { isAdmin } = useAuth();
 
 	const handleDeleteEvent = async () => {
-		if ( !event.$id ) return;
+		if (!event.$id) return;
 		await deleteEventById(event.$id);
 		navigate('/udalosti');
 	};
@@ -34,24 +35,30 @@ function Event() {
 				<Col>
 					{event ? (
 						<>
-							<h1>{event.name}</h1>
-
+							<Row>
+								<Col>
+									<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">{event.name}</h2>
+								</Col>
+								{isAdmin && (
+									<Col className='align-self-center text-end'>
+										<div className="btn-group">
+											<Button variant='danger' onClick={handleDeleteEvent}>Smazat událost</Button>
+										</div>
+									</Col>
+								)}
+							</Row>
 							<div className="card shadow-sm">
 								<img src={imageUrl || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 								<div className="card-body">
 									{/* <p>{event.$id}</p> */}
 									<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
 									<p>{event.description || "Žádný popis"}</p>
-									{isAdmin && (
-										<div className="btn-group">
-											<Button variant='danger' onClick={handleDeleteEvent}>Smazat událost</Button>
-										</div>
-									)}
+
 								</div>
 							</div>
 						</>
 					) : (
-						<h1>Načítám...</h1>
+						<h1 className='text-center mt-5'><Loading/></h1>
 					)}
 				</Col>
 			</Row>
