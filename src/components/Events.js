@@ -5,6 +5,7 @@ import { useAuth } from "hooks/useAuth";
 import { getEvents } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
 import burza from "assets/images/airsoft-burza_1920.jpg"
+import Loading from 'components/Loading';
 
 const Events = () => {
 	const [events, setEvents] = useState();
@@ -36,7 +37,6 @@ const Events = () => {
 						<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Události</h2>
 					</Col>
 					{session && (
-						// <Col className="d-flex justify-content-end">
 						<Col className='align-self-center text-end'>
 							<div className="btn-group">
 								<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
@@ -45,7 +45,7 @@ const Events = () => {
 					)}
 				</Row>
 				{loading ? (
-					<p>Načítám...</p>
+					<p><Loading /></p>
 				) : error ? (
 					<p>Chyba spojení s databází. Zkuste to prosím později.</p>
 				) : (
