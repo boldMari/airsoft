@@ -1,17 +1,49 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 import { useAuth } from "hooks/useAuth";
-import { getEvents } from 'lib/events';
+import { getEvents, deleteEventById } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
 import burza from "assets/images/airsoft-burza_1920.jpg"
 import Loading from 'components/Loading';
+
+const EventCard = styled.div`
+	transition: all 0.5s ease 0s;
+	
+	&:hover {
+		box-shadow: ${({ theme }) => theme.colors.yellow} 0 0 0.5em 0.25em !important;
+
+		.btn.btn-outline-secondary {
+			color: ${({ theme }) => theme.colors.yellow};
+			border-color: ${({ theme }) => theme.colors.yellow};
+
+			&:hover {
+				color: #000;
+				background-color: ${({ theme }) => theme.colors.yellow};
+			}
+		}
+	}
+
+	.btn-group .btn {
+		margin-right: 0.5em;
+	}
+
+`;
 
 const Events = () => {
 	const [events, setEvents] = useState();
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
-	const { session } = useAuth();
+	const { isAdmin } = useAuth();
+
+	function handleDeleteEvent(eventId) {
+		if (!eventId) return;
+		(async function run() {
+			await deleteEventById(eventId);
+			console.log('deleted');
+		})();
+	};
 
 	useEffect(() => {
 
@@ -36,7 +68,7 @@ const Events = () => {
 					<Col>
 						<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Události</h2>
 					</Col>
-					{session && (
+					{isAdmin && (
 						<Col className='align-self-center text-end'>
 							<div className="btn-group">
 								<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
@@ -54,7 +86,7 @@ const Events = () => {
 							const imageUrl = event?.imageFileId && getImageUrl(event.imageFileId);
 							return (
 								<Col key={event.$id}>
-									<div className="card shadow-sm">
+									<EventCard className="card">
 										<Link to={'../udalosti/' + event.$id}>
 											<img src={imageUrl || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 										</Link>
@@ -65,11 +97,14 @@ const Events = () => {
 											<p>{event.description || "Žádný popis"}</p>
 											<div className="d-flex justify-content-between align-items-center">
 												<div className="btn-group">
-													<Link to={'../udalosti/' + event.$id} className="btn btn-sm btn-outline-secondary">Detail</Link>
+													<Link to={'../udalosti/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
+													{isAdmin && (
+														<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+													)}
 												</div>
 											</div>
 										</div>
-									</div>
+									</EventCard>
 								</Col>
 							)
 						})}

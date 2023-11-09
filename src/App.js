@@ -10,27 +10,32 @@ import Pricing from 'pages/pricing';
 import Events from 'pages/events';
 import Login from 'pages/login';
 
+import Theme from 'assets/css/Theme';
+import { ThemeProvider } from 'styled-components';
+
 import Layout from 'components/Layout';
 import FirstTime from 'components/FirstTime';
 
 function App() {
 	return (
 		<AuthProvider>
-			<Router>
-				<Layout>
-					<Routes>
-						<Route path='/' element={<Home />} />
-						<Route path='/kontakt' element={<Contact />} />
-						<Route path='/pravidla' element={<Rules />} />
-						<Route path='/informace' element={<FirstTime />} />
-						<Route path='/cenik' element={<Pricing />} />
-						<Route path='/udalosti' element={<Events />} />
-						<Route path='/udalosti/vytvorit' element={<New />} />
-						<Route path='/udalosti/:id' element={<Event />} />
-						<Route path='/prihlasit' element={<Login />} />
-					</Routes>
-				</Layout>
-			</Router>
+			<ThemeProvider theme={Theme}>
+				<Router>
+					<Layout>
+						<Routes>
+							<Route path='/' element={<Home />} />
+							<Route path='/kontakt' element={<Contact />} />
+							<Route path='/pravidla' element={<Rules />} />
+							<Route path='/informace' element={<FirstTime />} />
+							<Route path='/cenik' element={<Pricing />} />
+							<Route path='/udalosti' element={<Events />} />
+							<Route path='/udalosti/vytvorit' element={<New />} />
+							<Route path='/udalosti/:id' element={<Event />} />
+							<Route path='/prihlasit' element={<Login />} />
+						</Routes>
+					</Layout>
+				</Router>
+			</ThemeProvider>
 		</AuthProvider>
 	);
 }

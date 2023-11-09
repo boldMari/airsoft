@@ -27,9 +27,9 @@ function New() {
 				width: image.width,
 				height: image.height,
 				file: file,
-				src: URL.createObjectURL(file)
 			})
 		};
+		image.src = URL.createObjectURL(file)
 		setImageType({isInvalid: false, isValid: true});
 
 	};
