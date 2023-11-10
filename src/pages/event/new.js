@@ -55,7 +55,7 @@ function New() {
 					imageFileId: upload?.$id
 				});
 
-				navigate(`/udalosti/${results.event.$id}`);
+				navigate(`/akce/${results.event.$id}`);
 			}
 		} catch (error) {
 			if (error instanceof AppwriteException) {
