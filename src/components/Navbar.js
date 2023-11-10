@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useAuth } from "hooks/useAuth";
-import Container from "react-bootstrap/Container";
-import Icon from "./Icon";
+import { NavLink } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import { useAuth } from 'hooks/useAuth';
+import Icon from 'components/Icon';
 import Bullet from 'assets/images/bulletfarm.png';
 import Navbar from 'react-bootstrap/Navbar';
 
