@@ -51,17 +51,17 @@ const Events = () => {
 		if (!eventId) return;
 		(async function run() {
 			await deleteEventById(eventId);
+			window.location.reload();
 		})();
 	};
 
 	useEffect(() => {
-
 		(async function run() {
 			try {
 				const { events } = await getEvents();
 				setEvents({
-					future: events.filter(event => new Date(event.date) >= new Date()),
-					past: events.filter(event => new Date(event.date) < new Date())
+					future: events.filter(event => new Date(event.date) >= new Date()).sort((a, b) => new Date(a.date) - new Date(b.date)),
+					past: events.filter(event => new Date(event.date) < new Date()).sort((a, b) => new Date(b.date) - new Date(a.date))
 				});
 				setLoading(false);
 			} catch (error) {
@@ -70,7 +70,6 @@ const Events = () => {
 				setError(true);
 			}
 		})();
-
 	}, []);
 
 	return (
@@ -82,7 +81,7 @@ const Events = () => {
 				{isAdmin && (
 					<Col className='align-self-center text-end'>
 						<div className="btn-group">
-							<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
+							<Link to={'/akce/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
 						</div>
 					</Col>
 				)}
