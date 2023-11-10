@@ -24,6 +24,9 @@ const MyNavbar = () => {
 								<NavLink className="nav-link" to="/">Úvod</NavLink>
 							</li>
 							<li className="nav-item">
+								<NavLink className="nav-link" to="/akce">Akce</NavLink>
+							</li>
+							<li className="nav-item">
 								<NavLink className="nav-link" to="/informace">Informace</NavLink>
 							</li>
 							<li className="nav-item">
@@ -31,9 +34,6 @@ const MyNavbar = () => {
 							</li>
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/pravidla">Pravidla</NavLink>
-							</li>
-							<li className="nav-item">
-								<NavLink className="nav-link" to="/udalosti">Události</NavLink>
 							</li>
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/kontakt">Kontakt</NavLink>

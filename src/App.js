@@ -28,9 +28,9 @@ function App() {
 							<Route path='/pravidla' element={<Rules />} />
 							<Route path='/informace' element={<FirstTime />} />
 							<Route path='/cenik' element={<Pricing />} />
-							<Route path='/udalosti' element={<Events />} />
-							<Route path='/udalosti/vytvorit' element={<New />} />
-							<Route path='/udalosti/:id' element={<Event />} />
+							<Route path='/akce' element={<Events />} />
+							<Route path='/akce/vytvorit' element={<New />} />
+							<Route path='/akce/:id' element={<Event />} />
 							<Route path='/prihlasit' element={<Login />} />
 						</Routes>
 					</Layout>

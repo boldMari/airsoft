@@ -31,6 +31,16 @@ const EventCard = styled.div`
 
 `;
 
+const PastEvents = styled(Row)`
+	.card-img-top {
+		filter: grayscale(100%);
+
+		&:hover {
+			filter: grayscale(0%);
+		}
+	}
+`;
+
 const Events = () => {
 	const [events, setEvents] = useState();
 	const [loading, setLoading] = useState(true);
@@ -41,7 +51,6 @@ const Events = () => {
 		if (!eventId) return;
 		(async function run() {
 			await deleteEventById(eventId);
-			console.log('deleted');
 		})();
 	};
 
@@ -50,7 +59,10 @@ const Events = () => {
 		(async function run() {
 			try {
 				const { events } = await getEvents();
-				setEvents(events);
+				setEvents({
+					future: events.filter(event => new Date(event.date) >= new Date()),
+					past: events.filter(event => new Date(event.date) < new Date())
+				});
 				setLoading(false);
 			} catch (error) {
 				setEvents(null);
@@ -62,42 +74,40 @@ const Events = () => {
 	}, []);
 
 	return (
-		<>
-			<Container>
-				<Row>
-					<Col>
-						<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Události</h2>
+		<Container>
+			<Row>
+				<Col>
+					<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Chystané akce</h2>
+				</Col>
+				{isAdmin && (
+					<Col className='align-self-center text-end'>
+						<div className="btn-group">
+							<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
+						</div>
 					</Col>
-					{isAdmin && (
-						<Col className='align-self-center text-end'>
-							<div className="btn-group">
-								<Link to={'/udalosti/vytvorit'} className="btn btn-sm btn-outline-secondary">Vytvořit</Link>
-							</div>
-						</Col>
-					)}
-				</Row>
-				{loading ? (
-					<p><Loading /></p>
-				) : error ? (
-					<p>Chyba spojení s databází. Zkuste to prosím později.</p>
-				) : (
+				)}
+			</Row>
+			{loading ? (
+				<p><Loading /></p>
+			) : error ? (
+				<p>Chyba spojení s databází. Zkuste to prosím později.</p>
+			) : (
+				<>
 					<Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-						{events.map(event => {
-							const imageUrl = event?.imageFileId && getImageUrl(event.imageFileId);
-							return (
+						{events.future.length > 0 ? (
+							events.future.map(event => (
 								<Col key={event.$id}>
 									<EventCard className="card">
-										<Link to={'../udalosti/' + event.$id}>
-											<img src={imageUrl || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
+										<Link to={'../akce/' + event.$id}>
+											<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 										</Link>
 										<div className="card-body">
 											<h4>{event.name}</h4>
-											{/* <p>{event.$id}</p> */}
 											<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
 											<p>{event.description || "Žádný popis"}</p>
 											<div className="d-flex justify-content-between align-items-center">
 												<div className="btn-group">
-													<Link to={'../udalosti/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
+													<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
 													{isAdmin && (
 														<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
 													)}
@@ -106,12 +116,43 @@ const Events = () => {
 										</div>
 									</EventCard>
 								</Col>
-							)
-						})}
+							))
+						) : (
+							<p>Žádné plánované akce</p>
+						)}
 					</Row>
-				)}
-			</Container>
-		</>
+					<Row>
+						<Col>
+							<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Proběhlé akce</h2>
+						</Col>
+					</Row>
+					<PastEvents className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 past-events">
+						{events.past.map(event => (
+							<Col key={event.$id}>
+								<EventCard className="card">
+									<Link to={'../akce/' + event.$id}>
+										<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
+									</Link>
+									<div className="card-body">
+										<h4>{event.name}</h4>
+										<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
+										<p>{event.description || "Žádný popis"}</p>
+										<div className="d-flex justify-content-between align-items-center">
+											<div className="btn-group">
+												<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
+												{isAdmin && (
+													<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+												)}
+											</div>
+										</div>
+									</div>
+								</EventCard>
+							</Col>
+						))}
+					</PastEvents>
+				</>
+			)}
+		</Container>
 	)
 }
 
