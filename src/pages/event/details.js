@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { getEventById, deleteEventById } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
@@ -42,7 +42,8 @@ function Event() {
 								{isAdmin && (
 									<Col className='align-self-center text-end'>
 										<div className="btn-group">
-											<Button variant='danger' onClick={handleDeleteEvent}>Smazat událost</Button>
+											<Link to={'../akce/upravit/' + event.$id} className="btn btn-outline-secondary">Upravit</Link>
+											<Button variant='outline-danger' onClick={handleDeleteEvent}>Smazat událost</Button>
 										</div>
 									</Col>
 								)}

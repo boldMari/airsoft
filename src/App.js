@@ -4,6 +4,7 @@ import 'assets/css/App.scss';
 import Home from 'pages';
 import Event from 'pages/event/details';
 import New from 'pages/event/new';
+import Edit from 'pages/event/edit';
 import Contact from 'pages/contact';
 import Rules from 'pages/rules';
 import Pricing from 'pages/pricing';
@@ -30,6 +31,7 @@ function App() {
 							<Route path='/cenik' element={<Pricing />} />
 							<Route path='/akce' element={<Events />} />
 							<Route path='/akce/vytvorit' element={<New />} />
+							<Route path='/akce/upravit/:id' element={<Edit />} />
 							<Route path='/akce/:id' element={<Event />} />
 							<Route path='/prihlasit' element={<Login />} />
 						</Routes>

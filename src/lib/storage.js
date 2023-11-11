@@ -21,6 +21,15 @@ export function getImageUrl(fileId) {
 	}
 };
 
+export async function getFile(fileId) {
+	try {
+		const data = await storage.getFile(bucketId, fileId);
+		return data;
+	} catch (error) {
+		return error;
+	}
+};
+
 export async function deleteFileById(fileId) {
 	try {
 		const data = await storage.deleteFile(bucketId, fileId);

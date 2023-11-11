@@ -7,6 +7,7 @@ import { getEvents, deleteEventById } from 'lib/events';
 import { getImageUrl } from 'lib/storage';
 import burza from "assets/images/airsoft-burza_1920.jpg"
 import Loading from 'components/Loading';
+import textPreview from 'utils/textPreview';
 
 const EventCard = styled.div`
 	transition: all 0.5s ease 0s;
@@ -25,13 +26,20 @@ const EventCard = styled.div`
 		}
 	}
 
-	.btn-group .btn {
-		margin-right: 0.5em;
-	}
-
 `;
 
-const PastEvents = styled(Row)`
+const FutureEvents = styled(Row)`
+	.row.display-flex {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.row.display-flex > [class*='col-'] {
+		flex-grow: 1;
+	}
+`;
+
+const PastEvents = styled(FutureEvents)`
 	.card-img-top {
 		filter: grayscale(100%);
 
@@ -92,23 +100,26 @@ const Events = () => {
 				<p>Chyba spojení s databází. Zkuste to prosím později.</p>
 			) : (
 				<>
-					<Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<FutureEvents className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 						{events.future.length > 0 ? (
 							events.future.map(event => (
 								<Col key={event.$id}>
-									<EventCard className="card">
+									<EventCard className="card h-100">
 										<Link to={'../akce/' + event.$id}>
 											<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 										</Link>
-										<div className="card-body">
-											<h4>{event.name}</h4>
+										<div className="card-body d-flex flex-column">
+											<h4>{textPreview(event.name, 100)}</h4>
 											<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
-											<p>{event.description || "Žádný popis"}</p>
-											<div className="d-flex justify-content-between align-items-center">
+											<p>{textPreview(event.description, 100) || "Žádný popis"}</p>
+											<div className="d-flex justify-content-between align-items-center mt-auto">
 												<div className="btn-group">
 													<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
 													{isAdmin && (
-														<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+														<>
+															<Link to={'../akce/upravit/' + event.$id} className="btn btn-outline-secondary">Upravit</Link>
+															<Button variant='outline-danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+														</>
 													)}
 												</div>
 											</div>
@@ -119,7 +130,7 @@ const Events = () => {
 						) : (
 							<p>Žádné plánované akce</p>
 						)}
-					</Row>
+					</FutureEvents>
 					<Row>
 						<Col>
 							<h2 className="featurette-heading fw-normal lh-1 my-4 text-primary">Proběhlé akce</h2>
@@ -128,19 +139,22 @@ const Events = () => {
 					<PastEvents className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 past-events">
 						{events.past.map(event => (
 							<Col key={event.$id}>
-								<EventCard className="card">
+								<EventCard className="card h-100">
 									<Link to={'../akce/' + event.$id}>
 										<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 									</Link>
-									<div className="card-body">
+									<div className="card-body d-flex flex-column">
 										<h4>{event.name}</h4>
 										<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
 										<p>{event.description || "Žádný popis"}</p>
-										<div className="d-flex justify-content-between align-items-center">
+										<div className="d-flex justify-content-between align-items-center mt-auto">
 											<div className="btn-group">
 												<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
 												{isAdmin && (
-													<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+													<>
+														<Link to={'../akce/upravit/' + event.$id} className="btn btn-outline-secondary">Upravit</Link>
+														<Button variant='danger' onClick={() => handleDeleteEvent(event.$id)}>Smazat</Button>
+													</>
 												)}
 											</div>
 										</div>
