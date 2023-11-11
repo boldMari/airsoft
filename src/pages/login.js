@@ -31,7 +31,7 @@ function Login() {
 						setError('Chyba přihlášení. Zkuste to znovu.');
 					}
 				} else {
-					return navigate('/udalosti');
+					return navigate('/akce');
 				}
 			} catch (error) {
 				console.log('else catch error', error);
@@ -44,7 +44,7 @@ function Login() {
 
 	useEffect(() => {
 		if (session) {
-			return navigate('/udalosti');
+			return navigate('/akce');
 		}
 	}, [session]);
 
