@@ -60,3 +60,14 @@ export async function deleteEventById(eventId) {
 		return { error: error.message };
 	}
 }
+
+export async function updateEvent(event) {
+	try {
+		const document = await databases.updateDocument(databaseId, collectionId, event.$id, event);
+		return {
+			event: mapDocumentToEvent(document)
+		}
+	} catch (error) {
+		return { error: error.message };
+	}
+}
