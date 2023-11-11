@@ -73,37 +73,37 @@ function New() {
 			<Container>
 				<Row>
 					<Col>
-						<h1>Vytvořit událost</h1>
+						<h1>Vytvořit akci</h1>
 						<Form noValidate validated={validated} onSubmit={handleSubmit}>
 							<Form.Group controlId="eventName" className="mt-2">
-								<Form.Label>Název události</Form.Label>
-								<Form.Control type="text" placeholder="Zadejte název události" required />
+								<Form.Label>Název akce</Form.Label>
+								<Form.Control type="text" placeholder="Zadejte název akce" required />
 								<Form.Control.Feedback type="invalid">
-									Povinné pole: Zadejte název události
+									Povinné pole: Zadejte název akce
 								</Form.Control.Feedback>
 							</Form.Group>
 
 							<Form.Group controlId="eventDescription" className="mt-2">
-								<Form.Label>Popis události</Form.Label>
-								<Form.Control as="textarea" rows={3} placeholder="Zadejte popis události" required />
+								<Form.Label>Popis akce</Form.Label>
+								<Form.Control as="textarea" rows={3} placeholder="Zadejte popis akce" required />
 								<Form.Control.Feedback type="invalid">
-									Povinné pole: Zadejte popis události
+									Povinné pole: Zadejte popis akce
 								</Form.Control.Feedback>
 							</Form.Group>
 
 							<Form.Group controlId="eventDateTime" className="mt-2">
-								<Form.Label>Datum a čas konání události</Form.Label>
+								<Form.Label>Datum a čas konání akce</Form.Label>
 								<Form.Control type="datetime-local" required />
 								<Form.Control.Feedback type="invalid">
-									Povinné pole: Zadejte datum události
+									Povinné pole: Zadejte datum akce
 								</Form.Control.Feedback>
 							</Form.Group>
 
 							<Form.Group controlId="eventImage" className="mt-2">
-								<Form.Label>Náhledový obrázek události</Form.Label>
+								<Form.Label>Náhledový obrázek akce</Form.Label>
 								<Form.Control type="file" accept=".jpg,.png,.gif" required onChange={handleImage} isInvalid={imageType.isInvalid} isValid={imageType.isValid} />
 								<Form.Control.Feedback type="invalid">
-									Povinné pole: Vyberte obrázek události ve formátu JPG, PNG nebo GIF
+									Povinné pole: Vyberte obrázek akce ve formátu JPG, PNG nebo GIF
 								</Form.Control.Feedback>
 							</Form.Group>
 
