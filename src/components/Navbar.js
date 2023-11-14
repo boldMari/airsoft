@@ -38,14 +38,19 @@ const MyNavbar = () => {
 								<NavLink className="nav-link" to="/kontakt">Kontakt</NavLink>
 							</li>
 							{session && (
-							<li className="nav-item">
-								<NavLink className="nav-link" onClick={handleLogOut}>Odhlásit</NavLink>
-							</li>
+								<>
+									<li className="nav-item">
+										<NavLink className="nav-link" to="/ucet">Účet</NavLink>
+									</li>
+									<li className='nav-item'>
+										<NavLink className="nav-link" onClick={handleLogOut}>Odhlásit</NavLink>
+									</li>
+								</>
 							)}
 							{!session && (
-							<li className="nav-item">
-								<NavLink className="nav-link" to="/prihlasit">Přihlásit</NavLink>
-							</li>
+								<li className="nav-item">
+									<NavLink className="nav-link" to="/prihlasit">Přihlásit</NavLink>
+								</li>
 							)}
 						</ul>
 					</Navbar.Collapse>

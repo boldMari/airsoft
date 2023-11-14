@@ -1,4 +1,4 @@
-import { teams } from 'lib/appwrite'
+import { teams, account } from 'lib/appwrite'
 
 export async function getTeams() {
 	try {
@@ -7,9 +7,15 @@ export async function getTeams() {
 			teams: data.teams
 		}
 	} catch (error) {
-		console.error(error);
-		return {
-			error: 'Failed to fetch teams'
-		}
+		return error;
+	}
+}
+
+export async function updatePassword(newPassword, oldPassword) {
+	try {
+		const data = await account.updatePassword(newPassword, oldPassword);
+		return data;
+	} catch (error) {
+		return error;
 	}
 }

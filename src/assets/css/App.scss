@@ -6,6 +6,27 @@ $primary: $yellow;
 
 @import '~bootstrap/scss/bootstrap';
 
+html,
+body,
+#result {
+	height: 100%;
+}
+
+
+#result {
+	display: flex;
+	flex-direction: column;
+}
+
+.nav,
+main {
+	flex: 1 0 auto;
+}
+
+footer {
+	flex-shrink: 0;
+}
+
 ul.bullet {
 	list-style: none;
 }
