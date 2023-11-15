@@ -28,7 +28,7 @@ jobs:
         REACT_APP_APPWRITE_TEAM_ADMIN_ID: ${{ secrets.REACT_APP_APPWRITE_TEAM_ADMIN_ID }}
 
     - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          branch: gh-pages
-          folder: front-app/dist
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: gh-pages
+        folder: front-app/dist
