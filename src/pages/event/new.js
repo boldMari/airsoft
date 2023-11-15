@@ -4,12 +4,22 @@ import { AppwriteException } from 'appwrite';
 import { createEvent } from 'lib/events';
 import { uploadImage } from 'lib/storage';
 import { useNavigate } from 'react-router-dom';
+import DOMPurify from 'dompurify';
+import Quill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 function New() {
 	const [validated, setValidated] = useState(false);
 	const navigate = useNavigate();
 	const [image, setImage] = useState();
 	const [error, setError] = useState();
+	const [quillValue, setQuillValue] = useState('');
+
+	const handleQuillChange = (value) => {
+		const sanitizedValue = DOMPurify.sanitize(value);
+		setQuillValue(sanitizedValue);
+	};
+
 	const [imageType, setImageType] = useState({isInvalid: null, isValid: null});
 
 	const handleImage = (event) => {
@@ -50,7 +60,7 @@ function New() {
 			} else {
 				const results = await createEvent({
 					name: event.target.eventName.value,
-					description: event.target.eventDescription.value,
+					description: quillValue,
 					date: new Date(event.target.eventDateTime.value).toISOString(),
 					imageFileId: upload?.$id
 				});
@@ -85,7 +95,7 @@ function New() {
 
 							<Form.Group controlId="eventDescription" className="mt-2">
 								<Form.Label>Popis akce</Form.Label>
-								<Form.Control as="textarea" rows={3} placeholder="Zadejte popis akce" required />
+								<Quill theme="snow" value={quillValue} onChange={handleQuillChange} />
 								<Form.Control.Feedback type="invalid">
 									Povinné pole: Zadejte popis akce
 								</Form.Control.Feedback>
