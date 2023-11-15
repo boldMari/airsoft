@@ -109,9 +109,9 @@ const Events = () => {
 											<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 										</Link>
 										<div className="card-body d-flex flex-column">
-											<h4>{textPreview(event.name, 100)}</h4>
+											<h4>{textPreview(event.name, 100, true) || 'Chybí jméno akce'}</h4>
 											<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
-											<p>{textPreview(event.description, 100) || "Žádný popis"}</p>
+											<p>{textPreview(event.description, 100, true) || "Žádný popis"}</p>
 											<div className="d-flex justify-content-between align-items-center mt-auto">
 												<div className="btn-group">
 													<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>
@@ -144,9 +144,9 @@ const Events = () => {
 										<img src={(event?.imageFileId && getImageUrl(event.imageFileId)) || burza} alt="" className="card-img-top cover" width="100%" height="225" role="img" focusable="false" />
 									</Link>
 									<div className="card-body d-flex flex-column">
-										<h4>{event.name}</h4>
+										<h4>{textPreview(event.name, 100, true) || 'Chybí jméno akce'}</h4>
 										<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
-										<p>{event.description || "Žádný popis"}</p>
+										<p>{textPreview(event.description, 100, true) || "Žádný popis"}</p>
 										<div className="d-flex justify-content-between align-items-center mt-auto">
 											<div className="btn-group">
 												<Link to={'../akce/' + event.$id} className="btn btn-outline-secondary">Detail</Link>

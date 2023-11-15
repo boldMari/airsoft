@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AppwriteException } from 'appwrite';
+import DOMPurify from 'dompurify';
+import Quill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { createEvent, getEventById, updateEvent } from 'lib/events';
 import { uploadImage, getImageUrl, getFile } from 'lib/storage';
 import Loading from 'components/Loading';
@@ -17,6 +20,12 @@ function New() {
 	const { id } = useParams();
 	const [event, setEvent] = useState(undefined);
 	const imageUrl = event?.imageFileId && getImageUrl(event.imageFileId);
+	const [quillValue, setQuillValue] = useState('');
+
+	const handleQuillChange = (value) => {
+		const sanitizedValue = DOMPurify.sanitize(value);
+		setQuillValue(sanitizedValue);
+	};
 
 	const handleImage = (event) => {
 		const file = event.target.files[0];
@@ -58,7 +67,7 @@ function New() {
 				const results = await updateEvent({
 					$id: id,
 					name: event.target.eventName.value,
-					description: event.target.eventDescription.value,
+					description: quillValue,
 					date: new Date(event.target.eventDateTime.value).toISOString(),
 					imageFileId: upload?.$id
 				});
@@ -113,7 +122,8 @@ function New() {
 
 									<Form.Group controlId="eventDescription" className="mt-2">
 										<Form.Label>Popis akce</Form.Label>
-										<Form.Control as="textarea" rows={3} placeholder="Zadejte popis akce" defaultValue={event.description} required />
+										{/* <Form.Control as="textarea" rows={3} placeholder="Zadejte popis akce" defaultValue={event.description} required /> */}
+										<Quill theme="snow" onChange={handleQuillChange} defaultValue={event.description} />
 										<Form.Control.Feedback type="invalid">
 											Povinné pole: Zadejte popis akce
 										</Form.Control.Feedback>
@@ -130,7 +140,7 @@ function New() {
 									<Form.Group controlId="eventImage" className="mt-2">
 										<Form.Label>Náhledový obrázek akce</Form.Label>
 										{imageUrl && (
-											<img src={imagePreview || imageUrl} alt="" className="w-50 d-block mb-3" width="100%" height="225" role="img" focusable="false" />
+											<img src={imagePreview || imageUrl} alt="" className="w-50 h-auto d-block mb-3" width="100%" height="225" role="img" focusable="false" />
 										)}
 										<Form.Control type="file" accept=".jpg,.png,.gif" defaultValue={fileName} onChange={handleImage} isInvalid={imageType.isInvalid} isValid={imageType.isValid} />
 										<Form.Control.Feedback type="invalid">

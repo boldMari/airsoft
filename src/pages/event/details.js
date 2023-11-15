@@ -17,7 +17,7 @@ function Event() {
 	const handleDeleteEvent = async () => {
 		if (!event.$id) return;
 		await deleteEventById(event.$id);
-		navigate('/udalosti');
+		navigate('/akce');
 	};
 
 	useEffect(() => {
@@ -53,8 +53,7 @@ function Event() {
 								<div className="card-body">
 									{/* <p>{event.$id}</p> */}
 									<p>{new Date(event.date).toLocaleDateString('cs-CZ') || "Upřesníme"}</p>
-									<p>{event.description || "Žádný popis"}</p>
-
+									<div dangerouslySetInnerHTML={{ __html: event.description || "Žádný popis" }}></div>
 								</div>
 							</div>
 						</>
