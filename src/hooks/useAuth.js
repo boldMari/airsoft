@@ -3,7 +3,7 @@ import { AppwriteException } from 'appwrite';
 import { getCurrentSession, deleteCurrentSession, logIn } from 'lib/auth';
 import { getTeams } from 'lib/user';
 
-const teamAdminId = process.env.REACT_APP_TEAM_ADMIN_ID;
+const teamAdminId = process.env.REACT_APP_APPWRITE_TEAM_ADMIN_ID;
 
 export const AuthContext = createContext(undefined);
 
