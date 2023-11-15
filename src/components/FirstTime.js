@@ -16,26 +16,25 @@ const FirstTime = () => {
 					</ul>
 					<h3 class="fw-normal text-muted mb-3">Mohou u nás hrát i neplnoletí hráči?</h3>
 					<ul class="bullet p-0">
-						<li>Ano, a to buď v doprovodu zákonného zástupce, nebo s sebou na hru musí přinést podepsaní formulář.</li>
+						<li>Ano, a to buď v doprovodu zákonného zástupce, nebo s sebou na hru musí přinést podepsaný formulář.</li>
 					</ul>
-					<h3 class="fw-normal text-muted mb-3">Jak u nás vypadá herný den?</h3>
+					<h3 class="fw-normal text-muted mb-3">Jak u nás vypadá herní den?</h3>
 					<ul class="bullet p-0">
-						<li>Od 9:00 probíha měření a registrace.</li>
-						<li>V 10:00 začína briefing, kde si projdeme pravidla (doporučujeme přijet už kolem 9:00, kdo nestihne registraci a měření včas hraje až další hru!). Následně jsou hráči rozdělení do 2 týmu.</li>
-						<li>Poté se hraje z několika typů her: Team Death Match, Vlajka, Dobývání,..</li>
+						<li>Od 9:00 probíhá měření a registrace.</li>
+						<li>V 10:00 začíná briefing, kde si projdeme pravidla (doporučujeme přijet už kolem 9:00, kdo nestihne registraci a měření včas hraje až další hru!). Následně jsou hráči rozděleni do 2 týmu.</li>
+						<li>Poté se hraje z několika typů her: Team Death Match, Vlajka, Dobývání, ...</li>
 						<li>Kolem 13:00 je obědová pauza.</li>
 						<li>Celodenní hra končí kolem 16:00 hod.</li>
 					</ul>
-					<h3 class="fw-normal text-muted mb-3">Kde sa hraje?</h3>
+					<h3 class="fw-normal text-muted mb-3">Kde se hraje?</h3>
 					<ul class="bullet p-0">
-						<li>Nově hra bude probíhat v areáli Býv. Dynamitky Alfreda Nobela v Bohnicích.</li>
+						<li>Nově hra bude probíhat v areálu Bývalé Dynamitky Alfreda Nobela v Bohnicích.</li>
 					</ul>
 					<h3 class="fw-normal text-muted mb-3">Jak se k nám dostanete?</h3>
 					<ul class="bullet p-0">
 						<li>MHD: zastávka Zámky.</li>
 						<li>Parkování: ul. U Drahaně, Praha 8.</li>
 					</ul>
-
 				</div>
 				<div class="product-device shadow-sm d-none d-md-block"></div>
 				<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
