@@ -5,7 +5,7 @@ import { AppwriteException } from 'appwrite';
 import DOMPurify from 'dompurify';
 import Quill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { createEvent, getEventById, updateEvent } from 'lib/events';
+import { getEventById, updateEvent } from 'lib/events';
 import { uploadImage, getImageUrl, getFile } from 'lib/storage';
 import Loading from 'components/Loading';
 

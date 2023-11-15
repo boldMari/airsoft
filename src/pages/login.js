@@ -46,7 +46,7 @@ function Login() {
 		if (session) {
 			return navigate('/akce');
 		}
-	}, [session]);
+	}, [session, navigate]);
 
 	return (
 		<Container>

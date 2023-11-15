@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Alert, Container, Row, Col, Button } from "react-bootstrap";
+import { Alert, Container, Row, Col } from "react-bootstrap";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 
@@ -18,7 +18,7 @@ function Dashboard() {
 		if (location.search === "?heslo=zmeneno") {
 			setShowAlert(true);
 		}
-	}, [session, location]);
+	}, [session, location, navigate]);
 
 	return (
 		<Container>
