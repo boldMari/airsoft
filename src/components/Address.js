@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Container, Row, Col } from "react-bootstrap";
-import Icon from "./Icon"
+import { Container, Row, Col } from 'react-bootstrap';
+import Icon from './Icon';
 
 const Map = styled.iframe`
 	width: 100%;
