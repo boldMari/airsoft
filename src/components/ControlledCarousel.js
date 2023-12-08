@@ -20,7 +20,7 @@ function ControlledCarousel() {
 				<img src={img1} className='d-block w-100 cover' alt="img1" />
 				<Carousel.Caption className='text-primary'>
 					<h3>Vítejte v Dynamitce!</h3>
-					<p>Jsme airsoftové CQB hřiště, nově přesunuto v Bohnicích.</p>
+					<p>Jsme venkovní airsoftové hřiště, nově přesunuto v Bohnicích.</p>
 				</Carousel.Caption>
 			</Carousel.Item>
 			<Carousel.Item>
