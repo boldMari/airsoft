@@ -22,7 +22,7 @@ const ShortRules = () => {
 						<li>ZÁKAZ demolování, přenášení, barikádování a manipulace s překážkami.</li>
 					</ul>
 					<div className="d-flex justify-content-end">
-						<a href="#/pravidla" className="w-40 btn btn-lg btn-primary border-primary text-shadow">Kompletní pravidla</a>
+						<a href="/pravidla" className="w-40 btn btn-lg btn-primary border-primary text-shadow">Kompletní pravidla</a>
 					</div>
 				</div>
 				<div className="col-md-5 order-md-1 mt-4">
