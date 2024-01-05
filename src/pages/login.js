@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Alert, Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppwriteException } from 'appwrite';
 import { useAuth } from 'hooks/useAuth';
 
@@ -10,6 +10,17 @@ function Login() {
 	const [validated, setValidated] = useState(false);
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
+	const location = useLocation();
+	const [showAlert, setShowAlert] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
+
+	useEffect(() => {
+		if (location.search === '?chyba=neprihlaseny') {
+			setShowAlert(true);
+		} else if (location.search === '?heslo=zmeneno') {
+			setShowSuccess(true);
+		}
+	}, [location, navigate]);
 	const { logIn, session } = useAuth();
 
 	const handleSubmit = async (event) => {
@@ -53,6 +64,16 @@ function Login() {
 			<Row>
 				<Col>
 					<h1>Přihlásit</h1>
+					{showAlert && (
+						<Alert variant="warning" dismissible onClose={() => setShowAlert(false)}>
+							Na přístup na tuto stránku je potřeba se nejdříve přihlásit.
+						</Alert>
+					)}
+					{showSuccess && (
+						<Alert variant="success" dismissible onClose={() => setShowAlert(false)}>
+							Heslo bylo úspěšně změněno. Nyní se můžeš přihlásit.
+						</Alert>
+					)}
 					<Form noValidate validated={validated} onSubmit={handleSubmit}>
 						<Form.Group controlId="formBasicEmail">
 							<Form.Label>Email</Form.Label>
@@ -80,6 +101,10 @@ function Login() {
 							<Form.Control.Feedback type="invalid">
 								Povinné pole: Zadejte heslo
 							</Form.Control.Feedback>
+						</Form.Group>
+
+						<Form.Group>
+							<a href='/reset'>Obnovit heslo</a>
 						</Form.Group>
 
 						<Button variant="primary" type="submit" className="mt-3">

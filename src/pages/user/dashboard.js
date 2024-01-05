@@ -1,24 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Alert, Container, Row, Col } from "react-bootstrap";
+import { Alert, Container, Row, Col } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuth } from 'hooks/useAuth';
 
 function Dashboard() {
 
 	const navigate = useNavigate();
-	const { session } = useAuth();
 	const location = useLocation();
 	const [showAlert, setShowAlert] = useState(false);
 
 	useEffect(() => {
-		if (!session) {
-			return navigate('/');
-		}
-		if (location.search === "?heslo=zmeneno") {
+		if (location.search === '?heslo=zmeneno') {
 			setShowAlert(true);
 		}
-	}, [session, location, navigate]);
+	}, [location, navigate]);
 
 	return (
 		<Container>

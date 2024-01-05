@@ -13,9 +13,11 @@ import Events from 'pages/events';
 import Login from 'pages/login';
 import Dashboard from 'pages/user/dashboard';
 import PassChange from 'pages/user/passChange';
+import PassReset from 'pages/user/passReset';
 
 import Theme from 'assets/css/Theme';
 import { ThemeProvider } from 'styled-components';
+import PrivateRoute from 'components/PrivateRoute';
 
 import Layout from 'components/Layout';
 import FirstTime from 'components/FirstTime';
@@ -33,11 +35,14 @@ function App() {
 							<Route path='/informace' element={<FirstTime />} />
 							<Route path='/cenik' element={<Pricing />} />
 							<Route path='/akce' element={<Events />} />
-							<Route path='/akce/vytvorit' element={<New />} />
-							<Route path='/akce/upravit/:id' element={<Edit />} />
+							<Route element={<PrivateRoute />}>
+								<Route path='/ucet' element={<Dashboard />} />
+								<Route path='/akce/vytvorit' element={<New />} />
+								<Route path='/akce/upravit/:id' element={<Edit />} />
+							</Route>)
 							<Route path='/akce/:id' element={<Event />} />
 							<Route path='/prihlasit' element={<Login />} />
-							<Route path='/ucet' element={<Dashboard />} />
+							<Route path='/reset' element={<PassReset />} />
 							<Route path='/ucet/heslo' element={<PassChange />} />
 							<Route path='*' element={<Error/>} />
 						</Routes>
