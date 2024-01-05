@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert, Container, Row, Col } from 'react-bootstrap';
 import { AppwriteException } from 'appwrite';
-import { useNavigate } from 'react-router-dom';
-import { updatePassword } from 'lib/user';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { updatePassword, recoverPassword } from 'lib/user';
+import { useAuth } from 'hooks/useAuth';
 
 function ChangePassword() {
 	const [formData, setFormData] = useState({
@@ -13,8 +14,44 @@ function ChangePassword() {
 		error: null
 	});
 
+	const [urlParams, setUrlParams] = useState({
+		userId: null,
+		secret: null,
+		expire: null
+	});
+
 	const navigate = useNavigate();
+	const location = useLocation();
 	const minPasswordLength = 8;
+	const { session } = useAuth();
+
+	if (!session) {
+		console.log('no sessions', session);
+	}
+
+	useEffect(() => {
+
+		const searchParams = new URLSearchParams(location.search);
+		const params = ['userId', 'secret', 'expire'];
+
+		const updatedParams = params.reduce((acc, param) => {
+			const paramValue = searchParams.get(param);
+			if (paramValue) {
+				acc[param] = paramValue;
+			}
+			return acc;
+		}, {});
+
+		console.log(updatedParams);
+		setUrlParams(updatedParams);
+	}, [location.search]);
+
+	useEffect(() => {
+		if (!session && !urlParams.userId && !urlParams.secret && !urlParams.expire) {
+			// return navigate('/');
+			// console.log('no session');
+		}
+	}, [session, navigate, urlParams.userId, urlParams.secret, urlParams.expire]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -24,6 +61,26 @@ function ChangePassword() {
 			setFormData({ ...formData, error: 'Nové heslo se neshoduje.' });
 		} else {
 			setFormData({ ...formData, error: null });
+
+			// Recover password page variant
+			if (urlParams.userId && urlParams.secret && urlParams.expire) {
+				try {
+					const passwordChangeRequest = await recoverPassword(urlParams.userId, urlParams.secret, formData.newPassword, formData.verifyPassword);
+					if (passwordChangeRequest instanceof AppwriteException) {
+						setFormData({ ...formData, error: passwordChangeRequest.type });
+						console.log(passwordChangeRequest.type)
+						setFormData({ ...formData, error: 'Heslo se nepodařilo změnit.' });
+					} else {
+						return navigate('/prihlasit?heslo=zmeneno');
+					}
+				} catch (error) {
+					console.log('else catch error', error);
+					if (error instanceof AppwriteException) {
+						setFormData({ ...formData, error: 'Heslo se nepodařilo změnit.' });
+					}
+				}
+				// User password update variant
+			} else {
 				try {
 					const passwordChangeRequest = await updatePassword(formData.newPassword, formData.oldPassword);
 					if (passwordChangeRequest instanceof AppwriteException) {
@@ -32,7 +89,7 @@ function ChangePassword() {
 							setFormData({ ...formData, error: 'Staré heslo je neplatné. Zkuste to prosím znovu.' });
 						} else {
 							console.log(passwordChangeRequest.type)
-							setFormData({ ...formData, error: 'Heslo se nepodařilo změnit.'});
+							setFormData({ ...formData, error: 'Heslo se nepodařilo změnit.' });
 						}
 					} else {
 						return navigate('/ucet?heslo=zmeneno');
@@ -43,6 +100,7 @@ function ChangePassword() {
 						setFormData({ ...formData, error: 'Heslo se nepodařilo změnit.' });
 					}
 				}
+			}
 		}
 	};
 
@@ -51,18 +109,22 @@ function ChangePassword() {
 			<Row>
 				<Col>
 					<Form onSubmit={handleSubmit}>
-						<Form.Group controlId="oldPassword">
-							<Form.Label>Staré heslo:</Form.Label>
-							<Form.Control
-								type="password"
-								value={formData.oldPassword}
-								onChange={(event) => setFormData({ ...formData, oldPassword: event.target.value })}
-								isInvalid={formData.oldPassword.length > 0 && formData.oldPassword.length < 8}
-							/>
-							<Form.Control.Feedback type="invalid">
-								Heslo musí mít alespoň {minPasswordLength} znaků.
-							</Form.Control.Feedback>
-						</Form.Group>
+						{!urlParams.userId && !urlParams.secret && !urlParams.expire && (
+							<>
+								<Form.Group controlId="oldPassword">
+									<Form.Label>Staré heslo:</Form.Label>
+									<Form.Control
+										type="password"
+										value={formData.oldPassword}
+										onChange={(event) => setFormData({ ...formData, oldPassword: event.target.value })}
+										isInvalid={formData.oldPassword.length > 0 && formData.oldPassword.length < 8}
+									/>
+									<Form.Control.Feedback type="invalid">
+										Heslo musí mít alespoň {minPasswordLength} znaků.
+									</Form.Control.Feedback>
+								</Form.Group>
+							</>
+						)}
 
 						<Form.Group controlId="newPassword">
 							<Form.Label>Nové heslo:</Form.Label>

@@ -19,3 +19,21 @@ export async function updatePassword(newPassword, oldPassword) {
 		return error;
 	}
 }
+
+export async function resetPassword(email, url) {
+	try {
+		const data = await account.createRecovery(email, url);
+		return data;
+	} catch (error) {
+		return error;
+	}
+}
+
+export async function recoverPassword(userId, secret, password, confirmPassword) {
+	try {
+		const data = await account.updateRecovery(userId, secret, password, confirmPassword);
+		return data;
+	} catch (error) {
+		return error;
+	}
+}
