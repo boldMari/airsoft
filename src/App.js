@@ -8,6 +8,7 @@ import Edit from 'pages/event/edit';
 import Contact from 'pages/contact';
 import Rules from 'pages/rules';
 import Pricing from 'pages/pricing';
+import Error from 'pages/error';
 import Events from 'pages/events';
 import Login from 'pages/login';
 import Dashboard from 'pages/user/dashboard';
@@ -38,6 +39,7 @@ function App() {
 							<Route path='/prihlasit' element={<Login />} />
 							<Route path='/ucet' element={<Dashboard />} />
 							<Route path='/ucet/heslo' element={<PassChange />} />
+							<Route path='*' element={<Error/>} />
 						</Routes>
 					</Layout>
 				</Router>
