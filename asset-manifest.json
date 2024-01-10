@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.5739dbda.css",
-    "main.js": "/static/js/main.df815022.js",
+    "main.js": "/static/js/main.bece741d.js",
     "static/media/helmet_1920.jpg": "/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
     "static/media/airsoft-burza_1920.jpg": "/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
     "static/media/military-g385_1920.jpg": "/static/media/military-g385_1920.e32a8fa32ef08b014f71.jpg",
     "static/media/airsoft-replica_1920.jpg": "/static/media/airsoft-replica_1920.8dbac8e009f3b0daa925.jpg",
     "static/media/military_1920.jpg": "/static/media/military_1920.bc8b304a7f6c6c662193.jpg",
+    "static/media/camo.jpg": "/static/media/camo.5a02e71387639c8091ad.jpg",
     "static/media/bulletfarm.png": "/static/media/bulletfarm.5babf473804cfcaea0c2.png",
     "static/media/vest.png": "/static/media/vest.4def7cd9fb267f71364a.png",
     "static/media/tacticke-ochranne-bryle.jpg": "/static/media/tacticke-ochranne-bryle.72ed8cf27bc62bc716bb.jpg",
@@ -15,10 +16,10 @@
     "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
     "index.html": "/index.html",
     "main.5739dbda.css.map": "/static/css/main.5739dbda.css.map",
-    "main.df815022.js.map": "/static/js/main.df815022.js.map"
+    "main.bece741d.js.map": "/static/js/main.bece741d.js.map"
   },
   "entrypoints": [
     "static/css/main.5739dbda.css",
-    "static/js/main.df815022.js"
+    "static/js/main.bece741d.js"
   ]
 }
