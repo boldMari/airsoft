@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5739dbda.css",
-    "main.js": "/static/js/main.bece741d.js",
+    "main.js": "/static/js/main.89e305f9.js",
     "static/media/helmet_1920.jpg": "/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
     "static/media/airsoft-burza_1920.jpg": "/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
     "static/media/military-g385_1920.jpg": "/static/media/military-g385_1920.e32a8fa32ef08b014f71.jpg",
@@ -16,10 +16,10 @@
     "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
     "index.html": "/index.html",
     "main.5739dbda.css.map": "/static/css/main.5739dbda.css.map",
-    "main.bece741d.js.map": "/static/js/main.bece741d.js.map"
+    "main.89e305f9.js.map": "/static/js/main.89e305f9.js.map"
   },
   "entrypoints": [
     "static/css/main.5739dbda.css",
-    "static/js/main.bece741d.js"
+    "static/js/main.89e305f9.js"
   ]
 }
