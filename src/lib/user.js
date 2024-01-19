@@ -11,6 +11,34 @@ export async function getTeams() {
 	}
 }
 
+export async function fetchUserDetails() {
+	try {
+		const data = await account.get();
+		return {
+			user: {
+				name: data.name,
+				prefs: data.prefs
+			}
+		};
+	} catch (error) {
+		return error;
+	}
+};
+
+export async function updatePreferences(preferences) {
+	try {
+		const data = await account.updatePrefs(preferences);
+		return {
+			user: {
+				name: data.name,
+				prefs: data.prefs
+			}
+		};
+	} catch (error) {
+		return error;
+	}
+}
+
 export async function updatePassword(newPassword, oldPassword) {
 	try {
 		const data = await account.updatePassword(newPassword, oldPassword);
