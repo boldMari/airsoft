@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { AppwriteException } from 'appwrite';
 import { getCurrentSession, deleteCurrentSession, logIn } from 'lib/auth';
-import { getTeams } from 'lib/user';
+import { getTeams, fetchUserDetails, updatePreferences } from 'lib/user';
 
 const teamAdminId = process.env.REACT_APP_APPWRITE_TEAM_ADMIN_ID;
 
@@ -17,8 +17,9 @@ export const AuthProvider = ({ children }) => {
 }
 
 export function useAuthState() {
-	const [session, setSession] = useState();
+	const [session, setSession] = useState(null);
 	const [isAdmin, setIsAdmin] = useState(false);
+	const [userDetails, setUserDetails] = useState({ name: '', prefs: {nickname: '', team: ''} });
 
 	useEffect(() => {
 		(async function run() {
@@ -28,13 +29,29 @@ export function useAuthState() {
 	}, []);
 
 	useEffect(() => {
-		(async function run() {
+		const fetchTeams = async () => {
 			if (!session?.$id) return;
 			const { teams } = await getTeams();
-			const isAdmin = !!teams.find(team => team.$id === teamAdminId);
+			const isAdmin = !!teams.find((team) => team.$id === teamAdminId);
 			setIsAdmin(isAdmin);
+		};
+
+		const fetchUser = async () => {
+			if (!session?.$id) return;
+			const { user } = await fetchUserDetails();
+			setUserDetails(user);
+		};
+
+		(async function run() {
+			await fetchTeams();
+			await fetchUser();
 		})();
 	}, [session?.$id]);
+
+	async function updateUserDetails(preferences) {
+		const { user } = await updatePreferences(preferences);
+		setUserDetails(user);
+	}
 
 	async function logOut() {
 		await deleteCurrentSession();
@@ -54,7 +71,7 @@ export function useAuthState() {
 	}
 
 	return {
-		session, isAdmin, logIn: logInWrapper, logOut
+		session, isAdmin, userDetails, updateUserDetails, logIn: logInWrapper, logOut
 	}
 }
 

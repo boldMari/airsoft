@@ -20,8 +20,14 @@ function Login() {
 		} else if (location.search === '?heslo=zmeneno') {
 			setShowSuccess(true);
 		}
-	}, [location, navigate]);
+	}, [location]);
 	const { logIn, session } = useAuth();
+
+	useEffect(() => {
+		if (session) {
+			return navigate('/ucet/');
+		}
+	}, [session, navigate]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -42,7 +48,7 @@ function Login() {
 						setError('Chyba přihlášení. Zkuste to znovu.');
 					}
 				} else {
-					return navigate('/akce');
+					return navigate('/ucet/');
 				}
 			} catch (error) {
 				console.log('else catch error', error);
@@ -52,12 +58,6 @@ function Login() {
 			}
 		}
 	};
-
-	useEffect(() => {
-		if (session) {
-			return navigate('/akce');
-		}
-	}, [session, navigate]);
 
 	return (
 		<Container>

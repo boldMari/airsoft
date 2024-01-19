@@ -14,6 +14,7 @@ import Login from 'pages/login';
 import Dashboard from 'pages/user/dashboard';
 import PassChange from 'pages/user/passChange';
 import PassReset from 'pages/user/passReset';
+import ProfileChange from 'pages/user/profileChange';
 
 import Theme from 'assets/css/Theme';
 import { ThemeProvider } from 'styled-components';
@@ -37,6 +38,7 @@ function App() {
 							<Route path='/akce' element={<Events />} />
 							<Route element={<PrivateRoute />}>
 								<Route path='/ucet' element={<Dashboard />} />
+								<Route path='/ucet/profil/upravit' element={<ProfileChange />} />
 								<Route path='/akce/vytvorit' element={<New />} />
 								<Route path='/akce/upravit/:id' element={<Edit />} />
 							</Route>)
