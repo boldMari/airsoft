@@ -1,4 +1,4 @@
-import { teams, account } from 'lib/appwrite'
+import { teams, account, ID } from 'lib/appwrite'
 
 export async function getTeams() {
 	try {
@@ -14,6 +14,59 @@ export async function getTeams() {
 export async function fetchUserDetails() {
 	try {
 		const data = await account.get();
+		console.log('fetchUserDetails', data);
+		return {
+			user: {
+				name: data.name,
+				email: data.email,
+				verified: data.emailVerification,
+				prefs: data.prefs
+			}
+		};
+	} catch (error) {
+		return error;
+	}
+};
+
+export async function createUser(email, password, name, url) {
+	try {
+		const data = await account.create(ID.unique(), email, password, name);
+		await account.createEmailSession(email, password);
+		await account.createVerification(url);
+		return {
+			data
+		};
+	} catch (error) {
+		return error;
+	}
+};
+
+export async function triggerVerifyEmail(url) {
+	try {
+		const data = await account.createVerification(url);
+		return {
+			data
+		};
+	} catch (error) {
+		return error;
+	}
+
+}
+
+export async function verifyEmail(userId, secret) {
+	try {
+		const data = await account.updateVerification(userId, secret);
+		return {
+			data
+		};
+	} catch (error) {
+		return error;
+	}
+}
+
+export async function updateName(name) {
+	try {
+		const data = await account.updateName(name);
 		return {
 			user: {
 				name: data.name,
@@ -23,7 +76,7 @@ export async function fetchUserDetails() {
 	} catch (error) {
 		return error;
 	}
-};
+}
 
 export async function updatePreferences(preferences) {
 	try {

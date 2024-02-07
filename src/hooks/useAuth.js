@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { AppwriteException } from 'appwrite';
 import { getCurrentSession, deleteCurrentSession, logIn } from 'lib/auth';
-import { getTeams, fetchUserDetails, updatePreferences } from 'lib/user';
+import { getTeams, fetchUserDetails, updatePreferences, updateName } from 'lib/user';
 
 const teamAdminId = process.env.REACT_APP_APPWRITE_TEAM_ADMIN_ID;
 
@@ -48,9 +48,15 @@ export function useAuthState() {
 		})();
 	}, [session?.$id]);
 
-	async function updateUserDetails(preferences) {
-		const { user } = await updatePreferences(preferences);
-		setUserDetails(user);
+	async function updateUserDetails(updates) {
+		if (updates.preferences) {
+			const { user } = await updatePreferences(updates.preferences);
+			setUserDetails(user);
+		}
+		if (updates.name) {
+			const { user } = await updateName(updates.name);
+			setUserDetails(user);
+		}
 	}
 
 	async function logOut() {
