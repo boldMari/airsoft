@@ -18,8 +18,8 @@ function Login() {
 		if (location.search === '?chyba=neprihlaseny') {
 			setShowAlert(true);
 		} else if (location.search === '?heslo=zmeneno') {
-			setShowSuccess(true);
-		}
+			setShowSuccess('Heslo bylo úspěšně změněno. Nyní se můžeš přihlásit.');
+		} 
 	}, [location]);
 	const { logIn, session } = useAuth();
 
@@ -71,7 +71,7 @@ function Login() {
 					)}
 					{showSuccess && (
 						<Alert variant="success" dismissible onClose={() => setShowAlert(false)}>
-							Heslo bylo úspěšně změněno. Nyní se můžeš přihlásit.
+							{showSuccess}
 						</Alert>
 					)}
 					<Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -104,7 +104,8 @@ function Login() {
 						</Form.Group>
 
 						<Form.Group>
-							<a href='/reset'>Obnovit heslo</a>
+							<a href='/reset'>Obnovit heslo</a><br/>
+							<a href='/registrace' className="float-right">Registrovat</a>
 						</Form.Group>
 
 						<Button variant="primary" type="submit" className="mt-3">

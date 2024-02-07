@@ -42,7 +42,6 @@ function ChangePassword() {
 			return acc;
 		}, {});
 
-		console.log(updatedParams);
 		setUrlParams(updatedParams);
 	}, [location.search]);
 

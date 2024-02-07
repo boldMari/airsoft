@@ -7,7 +7,7 @@ import { useAuth } from 'hooks/useAuth';
 function ProfileChange() {
 	const { userDetails, updateUserDetails } = useAuth();
 	const [formData, setformData] = useState({
-		nickname: userDetails.prefs.nickname || '',
+		nickname: userDetails.name || '',
 		teamName: userDetails.prefs.team || '',
 		error: null,
 		message: null,
@@ -20,13 +20,21 @@ function ProfileChange() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		if (formData.nickname !== userDetails.prefs.nickname || formData.teamName !== userDetails.prefs.team) {
+		if (formData.nickname !== userDetails.name || formData.teamName !== userDetails.prefs.team) {
 			if (formData.nickname.length < minNicknameLength) {
 				return setformData({ ...formData, error: `Přezdívka musí mít alespoň ${minNicknameLength} znaky.` });
 			}
 
 			try {
-				await updateUserDetails({ nickname: formData.nickname, team: formData.teamName });
+				const updatedData = {};
+				if (formData.nickname !== userDetails.name) {
+					updatedData.name = formData.nickname;
+				}
+				if (formData.teamName !== userDetails.prefs.team) {
+					updatedData.preferences = { team: formData.teamName };
+				}
+
+				await updateUserDetails(updatedData);
 				return navigate('/ucet/?profil=zmenen');
 			} catch (error) {
 				if (error instanceof AppwriteException) {
