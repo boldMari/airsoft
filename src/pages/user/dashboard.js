@@ -48,7 +48,7 @@ function Dashboard() {
 				console.log(error);
 			}
 		}
-	}, [location.search]);
+	}, [location.search, navigate]);
 
 	const newVerifyEmail = async () => {
 		const request = await triggerVerifyEmail(verifyURL);
