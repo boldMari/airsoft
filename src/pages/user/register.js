@@ -67,6 +67,20 @@ function Register() {
 							</Form.Control.Feedback>
 						</Form.Group>
 
+						<Form.Group controlId="nickname">
+							<Form.Label>Jméno</Form.Label>
+							<Form.Control
+								type="text"
+								value={formData.nickname}
+								onChange={(event) => setFormData({ ...formData, nickname: event.target.value })}
+								isInvalid={formData.nickname.length > 0 && formData.nickname.length < minNicknameLength}
+								required
+							/>
+							<Form.Control.Feedback type="invalid">
+								Povinné pole: Zadej jméno. Musí mít alespoň {minNicknameLength} znaky.
+							</Form.Control.Feedback>
+						</Form.Group>
+
 						<Form.Group controlId="password">
 							<Form.Label>Heslo</Form.Label>
 							<Form.Control
@@ -95,20 +109,6 @@ function Register() {
 							/>
 							<Form.Control.Feedback type="invalid">
 								Nové heslo se neshoduje.
-							</Form.Control.Feedback>
-						</Form.Group>
-
-						<Form.Group controlId="nickname">
-							<Form.Label>Jméno</Form.Label>
-							<Form.Control
-								type="text"
-								value={formData.nickname}
-								onChange={(event) => setFormData({ ...formData, nickname: event.target.value })}
-								isInvalid={formData.nickname.length > 0 && formData.nickname.length < minNicknameLength}
-								required
-							/>
-							<Form.Control.Feedback type="invalid">
-								Povinné pole: Zadej jméno. Musí mít alespoň {minNicknameLength} znaky.
 							</Form.Control.Feedback>
 						</Form.Group>
 
