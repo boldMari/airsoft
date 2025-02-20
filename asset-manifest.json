@@ -1,25 +1,32 @@
 {
   "files": {
     "main.css": "/static/css/main.5739dbda.css",
-    "main.js": "/static/js/main.6e711926.js",
+    "main.js": "/static/js/main.27b9bca4.js",
     "static/media/helmet_1920.jpg": "/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
     "static/media/airsoft-burza_1920.jpg": "/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
     "static/media/military-g385_1920.jpg": "/static/media/military-g385_1920.e32a8fa32ef08b014f71.jpg",
     "static/media/airsoft-replica_1920.jpg": "/static/media/airsoft-replica_1920.8dbac8e009f3b0daa925.jpg",
     "static/media/military_1920.jpg": "/static/media/military_1920.bc8b304a7f6c6c662193.jpg",
+    "static/media/gloves.png": "/static/media/gloves.2b15b802e16e7a6bed3c.png",
+    "static/media/glasses.png": "/static/media/glasses.71565825b5d0f34d6169.png",
     "static/media/camo.jpg": "/static/media/camo.5a02e71387639c8091ad.jpg",
     "static/media/bulletfarm.png": "/static/media/bulletfarm.5babf473804cfcaea0c2.png",
     "static/media/vest.png": "/static/media/vest.4def7cd9fb267f71364a.png",
-    "static/media/tacticke-ochranne-bryle.jpg": "/static/media/tacticke-ochranne-bryle.72ed8cf27bc62bc716bb.jpg",
+    "static/media/bbs.png": "/static/media/bbs.1eced3a28606b8c84187.png",
+    "static/media/carrier.png": "/static/media/carrier.0e053a89533827ff6235.png",
+    "static/media/mask.png": "/static/media/mask.ba65fba1c42c1038ebbd.png",
+    "static/media/overal.png": "/static/media/overal.76ab1469c93230af1fb2.png",
+    "static/media/greengas.png": "/static/media/greengas.826a28b71a6f2116d8f8.png",
+    "static/media/co2.png": "/static/media/co2.455be552364b616b053a.png",
     "static/media/g36.jpg": "/static/media/g36.0ef1ed278654dc3941db.jpg",
     "static/media/icons.svg": "/static/media/icons.e19ac260459f8c74d0ba0dc772bd10bd.svg",
     "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
     "index.html": "/index.html",
     "main.5739dbda.css.map": "/static/css/main.5739dbda.css.map",
-    "main.6e711926.js.map": "/static/js/main.6e711926.js.map"
+    "main.27b9bca4.js.map": "/static/js/main.27b9bca4.js.map"
   },
   "entrypoints": [
     "static/css/main.5739dbda.css",
-    "static/js/main.6e711926.js"
+    "static/js/main.27b9bca4.js"
   ]
 }
