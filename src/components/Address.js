@@ -24,7 +24,13 @@ const Address = () => {
 						</div>
 						<div className="d-flex align-items-start">
 							<Icon name="parking" title="Parking" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
-							<p className="lead mt-3">Parkovat lze: U Drahaně, Praha 8. </p>
+							<p className="lead mt-3">
+								Parkovat lze: U Drahaně, Praha 8. <br/>
+								Omezené parkování také v areálu. Vjezd do areálu spodní branou (vstup od Vltavy) pouze v určeném časovém okně. <br/>
+								Příjezd  9:00 - 9:30 <br/>
+								Polední otevírací okno spodní brána  13:00 - 13:15 <br/>
+								Po ukončení akce  cca 16:00
+							</p>
 						</div>
 						<h3 className="mt-3">Z parkoviště na registraci</h3>
 						<Map
