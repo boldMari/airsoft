@@ -1,4 +1,5 @@
 import Container from "react-bootstrap/Container";
+import Sponsors from "./Sponsors";
 
 function Footer() {
 	const currentYear = new Date().getFullYear();
@@ -8,6 +9,7 @@ function Footer() {
 			<Container className="py-5 text-center">
 				&copy; Bullet Farm {currentYear}
 			</Container>
+			<Sponsors />
 		</footer>
 	)
 }
