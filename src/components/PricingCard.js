@@ -64,12 +64,12 @@ const PricingCard = () => {
 	return (
 		<PricingCardContainer>
 			<div className="container">
-				<h2 className="featurette-heading fw-normal lh-1 mt-4 pb-2 border-bottom text-primary">Vstupné</h2>
+				<h2 className="featurette-heading fw-normal lh-1 mt-4 pb-2 border-bottom text-primary">Příspěvky na akci</h2>
 				<div className="row row-cols-1 row-cols-md-3 mb-3 text-center mt-5">
 					<div className="col">
 						<div className="card mb-4 rounded-3 shadow-sm border-primary">
 							<div className="card-header py-3 text-bg-primary border-primary">
-								<h4 className="my-0 fw-normal text-shadow">Celodenní vstup</h4>
+								<h4 className="my-0 fw-normal text-shadow">Sobota</h4>
 							</div>
 							<div className="card-body d-flex flex-column">
 								<h1 className="card-title pricing-card-title">150 Kč<small className="text-body-secondary fw-light">/den</small></h1>
@@ -82,12 +82,12 @@ const PricingCard = () => {
 					<div className="col">
 						<div className="card mb-4 rounded-3 shadow-sm border-primary">
 							<div className="card-header py-3 text-bg-primary border-primary">
-								<h4 className="my-0 fw-normal text-shadow">Půldenní vstup</h4>
+								<h4 className="my-0 fw-normal text-shadow">Neděle 18+</h4>
 							</div>
 							<div className="card-body d-flex flex-column">
-								<h1 className="card-title pricing-card-title">100 Kč<small className="text-body-secondary fw-light">/den</small></h1>
+								<h1 className="card-title pricing-card-title">200 Kč<small className="text-body-secondary fw-light">/den</small></h1>
 								<ul className="list-unstyled mt-3 mb-4">
-									<li>Hra od 9:00 do 13:00 hod.</li>
+									<li>Hra od 9:00 do 16:00 hod.</li>
 								</ul>
 							</div>
 						</div>
@@ -95,12 +95,12 @@ const PricingCard = () => {
 					<div className="col">
 						<div className="card mb-4 rounded-3 shadow-sm border-primary">
 							<div className="card-header py-3 text-bg-primary border-primary">
-								<h4 className="my-0 fw-normal text-shadow">Permice</h4>
+								<h4 className="my-0 fw-normal text-shadow">Platby pouze hotově!</h4>
 							</div>
 							<div className="card-body d-flex flex-column">
-								<h1 className="card-title pricing-card-title">850 Kč<small className="text-body-secondary fw-light">/10 vstupů</small></h1>
 								<ul className="list-unstyled mt-3 mb-4">
-									<li>10 celodenních vstupu.</li>
+									<li>Občerstvení zajištěno</li>
+									<li>Příspěvěk na scénářové hry se může lišit</li>
 								</ul>
 							</div>
 						</div>
@@ -120,11 +120,6 @@ const PricingCard = () => {
 									- baterie<br/>
 									- točný zásobník na 470 kuliček
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">250 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -135,11 +130,6 @@ const PricingCard = () => {
 								<p className="card-text">
 									Rukavice
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">20 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -150,11 +140,6 @@ const PricingCard = () => {
 								<p className="card-text">
 									Taktická vesta
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">50 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -165,11 +150,6 @@ const PricingCard = () => {
 								<p className="card-text">
 									Balistické brýle
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">10 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -180,11 +160,6 @@ const PricingCard = () => {
 								<p className="card-text">
 									Drátěnná maska
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">20 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -193,13 +168,8 @@ const PricingCard = () => {
 							<img src={vest} className="card-img-top contain" width="100%" height="250" alt="" role="img" focusable="false" />
 							<div className="card-body d-flex flex-column">
 								<p className="card-text">
-									Reflexní vesta<br/>Záloha 40 Kč
+									Reflexní vesta<br/>
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">10 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -210,11 +180,6 @@ const PricingCard = () => {
 								<p className="card-text">
 									Overal 
 								</p>
-								<div className="mt-auto d-flex justify-content-end align-items-center">
-									<div className="btn-group">
-										<div className="border border-secondary rounded-3 text-body-secondary fs-4 px-2 py-1 btn btn-sm btn-outline-secondary">100 Kč/den</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
