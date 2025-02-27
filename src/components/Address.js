@@ -32,6 +32,13 @@ const Address = () => {
 								Po ukončení akce  cca 16:00
 							</p>
 						</div>
+						<div className="d-flex align-items-start">
+							<Icon name="parking" title="Parking" size='1.5em' className="bi text-body-secondary flex-shrink-0 me-3 mt-3" />
+							<p className="lead mt-3">
+								Kontakt na pronájem: <br/>
+								Onďa - 737 730 690
+							</p>
+						</div>
 						<h3 className="mt-3">Z parkoviště na registraci</h3>
 						<Map
 							src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d5114.122548179629!2d14.405275098802036!3d50.141285562227466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e2!4m3!3m2!1d50.144634499999995!2d14.407100799999998!4m3!3m2!1d50.1379185!2d14.4137244!5e0!3m2!1scs!2scz!4v1700496214043!5m2!1scs!2scz"
