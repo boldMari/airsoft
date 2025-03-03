@@ -1,13 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.5739dbda.css",
-    "main.js": "/static/js/main.01abbcbc.js",
+    "main.js": "/static/js/main.64b2d509.js",
+    "static/media/bullet_farm_3.jpg": "/static/media/bullet_farm_3.2fbea6fce8fd1c29ca13.jpg",
     "static/media/bullet_dron.jpg": "/static/media/bullet_dron.ff3cb5c1b7ed3ef2b9a3.jpg",
+    "static/media/bullet_farm_4.jpg": "/static/media/bullet_farm_4.4bdf877a060bb583328b.jpg",
     "static/media/bullet_box.jpg": "/static/media/bullet_box.c7e6787f96f2ae257cb2.jpg",
     "static/media/helmet_1920.jpg": "/static/media/helmet_1920.8d93588992c13fb53e11.jpg",
     "static/media/airsoft-burza_1920.jpg": "/static/media/airsoft-burza_1920.a97209d7bdda6777b86a.jpg",
     "static/media/fosil.png": "/static/media/fosil.60ac459fae79601db154.png",
+    "static/media/bullet_farm_1.jpg": "/static/media/bullet_farm_1.64db259a0ad5bb7f5cf7.jpg",
     "static/media/military_1920.jpg": "/static/media/military_1920.bc8b304a7f6c6c662193.jpg",
+    "static/media/bullet_farm_2.jpg": "/static/media/bullet_farm_2.bf289575de69b1fc10c0.jpg",
     "static/media/gloves.png": "/static/media/gloves.2b15b802e16e7a6bed3c.png",
     "static/media/glasses.png": "/static/media/glasses.71565825b5d0f34d6169.png",
     "static/media/camo.jpg": "/static/media/camo.5a02e71387639c8091ad.jpg",
@@ -24,13 +28,14 @@
     "static/media/co2.png": "/static/media/co2.455be552364b616b053a.png",
     "static/media/g36.jpg": "/static/media/g36.0ef1ed278654dc3941db.jpg",
     "static/media/icons.svg": "/static/media/icons.e19ac260459f8c74d0ba0dc772bd10bd.svg",
+    "static/media/profile.png": "/static/media/profile.e9e866e8fe02669adaae.png",
     "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
     "index.html": "/index.html",
     "main.5739dbda.css.map": "/static/css/main.5739dbda.css.map",
-    "main.01abbcbc.js.map": "/static/js/main.01abbcbc.js.map"
+    "main.64b2d509.js.map": "/static/js/main.64b2d509.js.map"
   },
   "entrypoints": [
     "static/css/main.5739dbda.css",
-    "static/js/main.01abbcbc.js"
+    "static/js/main.64b2d509.js"
   ]
 }
