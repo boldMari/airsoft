@@ -29,6 +29,9 @@ const MyNavbar = () => {
 								<NavLink className="nav-link" to="/informace">Informace</NavLink>
 							</li>
 							<li className="nav-item">
+								<NavLink className="nav-link" to="/onas">O nás</NavLink>
+							</li>
+							<li className="nav-item">
 								<NavLink className="nav-link" to="/cenik">Ceník</NavLink>
 							</li>
 							<li className="nav-item">
