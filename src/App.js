@@ -23,6 +23,7 @@ import PrivateRoute from 'components/PrivateRoute';
 
 import Layout from 'components/Layout';
 import FirstTime from 'components/FirstTime';
+import About from 'components/About';
 
 function App() {
 	return (
@@ -35,6 +36,7 @@ function App() {
 							<Route path='/kontakt' element={<Contact />} />
 							<Route path='/pravidla' element={<Rules />} />
 							<Route path='/informace' element={<FirstTime />} />
+							<Route path='/onas' element={<About />} />
 							<Route path='/cenik' element={<Pricing />} />
 							<Route path='/akce' element={<Events />} />
 							<Route element={<PrivateRoute />}>
