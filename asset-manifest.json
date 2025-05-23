@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5739dbda.css",
-    "main.js": "/static/js/main.64b2d509.js",
+    "main.js": "/static/js/main.9dbd146b.js",
     "static/media/bullet_farm_3.jpg": "/static/media/bullet_farm_3.2fbea6fce8fd1c29ca13.jpg",
     "static/media/bullet_dron.jpg": "/static/media/bullet_dron.ff3cb5c1b7ed3ef2b9a3.jpg",
     "static/media/bullet_farm_4.jpg": "/static/media/bullet_farm_4.4bdf877a060bb583328b.jpg",
@@ -26,16 +26,16 @@
     "static/media/greengas.png": "/static/media/greengas.826a28b71a6f2116d8f8.png",
     "static/media/action.svg": "/static/media/action.965a445ede57b947c36717ed57993c4e.svg",
     "static/media/co2.png": "/static/media/co2.455be552364b616b053a.png",
+    "static/media/icons.svg": "/static/media/icons.354c8a0aa1c0d202dc386eefbbc214bf.svg",
     "static/media/g36.jpg": "/static/media/g36.0ef1ed278654dc3941db.jpg",
-    "static/media/icons.svg": "/static/media/icons.e19ac260459f8c74d0ba0dc772bd10bd.svg",
     "static/media/profile.png": "/static/media/profile.e9e866e8fe02669adaae.png",
     "static/media/bullet.svg": "/static/media/bullet.85cf0bcfad1f0c4e3172.svg",
     "index.html": "/index.html",
     "main.5739dbda.css.map": "/static/css/main.5739dbda.css.map",
-    "main.64b2d509.js.map": "/static/js/main.64b2d509.js.map"
+    "main.9dbd146b.js.map": "/static/js/main.9dbd146b.js.map"
   },
   "entrypoints": [
     "static/css/main.5739dbda.css",
-    "static/js/main.64b2d509.js"
+    "static/js/main.9dbd146b.js"
   ]
 }
